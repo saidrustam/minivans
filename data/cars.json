@@ -1,0 +1,212 @@
+[
+    {
+        "slug":  "kia-carnival",
+        "title":  "KIA Carnival",
+        "image":  "uploads/2024/11/kia-carnival.webp",
+        "gallery":  [
+                        "uploads/2024/11/kia-carnival.webp",
+                        "uploads/2024/11/kia-carnival3.webp",
+                        "uploads/2024/11/kia-carnival4.webp",
+                        "uploads/2024/11/kia-carnival7.webp"
+                    ],
+        "specs":  [
+                      "7-8 мест",
+                      "Большой багажник",
+                      "Автомат",
+                      "Кондиционер"
+                  ],
+        "price":  "150 USD в день",
+        "description":  "Комфортный минивэн для семьи, деловой поездки, трансфера из аэропорта и путешествий по Узбекистану.",
+        "seo_title":  "Аренда KIA Carnival в Ташкенте | Minivan24",
+        "seo_description":  "Аренда KIA Carnival в Ташкенте для семьи, трансфера, деловой поездки и путешествий по Узбекистану."
+    },
+    {
+        "slug":  "kia-carnival-2",
+        "title":  "KIA Carnival",
+        "image":  "uploads/2024/11/kia-carnival3.webp",
+        "gallery":  [
+                        "uploads/2024/11/kia-carnival3.webp",
+                        "uploads/2024/11/kia-carnival5.webp",
+                        "uploads/2024/11/kia-carnival6.webp",
+                        "uploads/2024/11/kia-carnival10.webp"
+                    ],
+        "specs":  [
+                      "7 мест",
+                      "Премиум-салон",
+                      "Автомат",
+                      "Климат-контроль"
+                  ],
+        "price":  "150 USD в день",
+        "description":  "Просторный KIA Carnival для гостей, туристов и поездок с большим багажом.",
+        "seo_title":  "KIA Carnival 7 мест в аренду в Ташкенте | Minivan24",
+        "seo_description":  "Просторный KIA Carnival на 7 мест в аренду в Ташкенте для гостей, туристов и поездок с багажом."
+    },
+    {
+        "slug":  "kia-carnival-3",
+        "title":  "KIA Carnival",
+        "image":  "uploads/2024/11/kia-carnival4.webp",
+        "gallery":  [
+                        "uploads/2024/11/kia-carnival4.webp",
+                        "uploads/2024/11/kia-carnival11.webp",
+                        "uploads/2024/11/kia-karnaval2.webp",
+                        "uploads/2024/11/kia-karnaval8.webp"
+                    ],
+        "specs":  [
+                      "7-8 мест",
+                      "Комфорт",
+                      "Автомат",
+                      "Город/трасса"
+                  ],
+        "price":  "150 USD в день",
+        "description":  "Удобный вариант для семейных маршрутов, экскурсий и встреч делегаций.",
+        "seo_title":  "Аренда KIA Carnival для экскурсий и делегаций | Minivan24",
+        "seo_description":  "KIA Carnival для семейных маршрутов, экскурсий, встреч делегаций и поездок по Ташкенту."
+    },
+    {
+        "slug":  "kia-carnival-4",
+        "title":  "KIA Carnival",
+        "image":  "uploads/2024/11/kia-carnival5.webp",
+        "gallery":  [
+                        "uploads/2024/11/kia-carnival5.webp",
+                        "uploads/2024/11/kia-carnival.webp",
+                        "uploads/2024/11/kia-carnival6.webp",
+                        "uploads/2024/11/kia-carnival7.webp"
+                    ],
+        "specs":  [
+                      "7 мест",
+                      "Багаж",
+                      "Автомат",
+                      "Кондиционер"
+                  ],
+        "price":  "150 USD в день",
+        "description":  "Минивэн для трансфера, свадьбы, встречи гостей и поездок по Ташкенту.",
+        "seo_title":  "KIA Carnival для трансфера и свадьбы в Ташкенте | Minivan24",
+        "seo_description":  "Аренда KIA Carnival для трансфера, свадьбы, встречи гостей и поездок по Ташкенту."
+    },
+    {
+        "slug":  "kia-carnival-5",
+        "title":  "KIA Carnival",
+        "image":  "uploads/2024/11/kia-carnival6.webp",
+        "gallery":  [
+                        "uploads/2024/11/kia-carnival6.webp",
+                        "uploads/2024/11/kia-carnival10.webp",
+                        "uploads/2024/11/kia-carnival11.webp",
+                        "uploads/2024/11/kia-karnaval8.webp"
+                    ],
+        "specs":  [
+                      "7-8 мест",
+                      "Премиум",
+                      "Автомат",
+                      "Комфорт"
+                  ],
+        "price":  "100 USD в день",
+        "description":  "Современный минивэн для тех, кому важны плавная поездка и просторный салон.",
+        "seo_title":  "Премиум KIA Carnival в аренду в Ташкенте | Minivan24",
+        "seo_description":  "Современный KIA Carnival с просторным салоном для комфортной аренды в Ташкенте."
+    },
+    {
+        "slug":  "hyundai-starex",
+        "title":  "HYUNDAI Starex",
+        "image":  "uploads/2024/11/hyundai-starex.webp",
+        "gallery":  [
+                        "uploads/2024/11/hyundai-starex.webp",
+                        "uploads/2024/11/hyundai-starex1.webp",
+                        "uploads/2024/11/hyundai-starex2.webp",
+                        "uploads/2024/11/hyundai-starex3.webp"
+                    ],
+        "specs":  [
+                      "до 11 мест",
+                      "Для трансфера",
+                      "Автомат",
+                      "Климат-контроль"
+                  ],
+        "price":  "150 USD в день",
+        "description":  "Практичный микроавтобус для групп, экскурсий, трансферов и поездок за город.",
+        "seo_title":  "Аренда HYUNDAI Starex в Ташкенте | Minivan24",
+        "seo_description":  "HYUNDAI Starex в аренду для групп, экскурсий, трансферов и поездок за город из Ташкента."
+    },
+    {
+        "slug":  "hyundai-starex-2",
+        "title":  "HYUNDAI Starex",
+        "image":  "uploads/2024/11/hyundai-starex2.webp",
+        "gallery":  [
+                        "uploads/2024/11/hyundai-starex2.webp",
+                        "uploads/2024/11/hyundai-starex.webp",
+                        "uploads/2024/11/hyundai-starex1.webp",
+                        "uploads/2024/11/hyundai-starex3.webp"
+                    ],
+        "specs":  [
+                      "9 мест",
+                      "Много багажа",
+                      "Автомат",
+                      "Бензин"
+                  ],
+        "price":  "150 USD в день",
+        "description":  "Вместительный Starex для туристов, семей и корпоративных маршрутов.",
+        "seo_title":  "HYUNDAI Starex 9 мест в аренду | Minivan24",
+        "seo_description":  "Вместительный HYUNDAI Starex на 9 мест для туристов, семей и корпоративных маршрутов."
+    },
+    {
+        "slug":  "hyundai-h-1",
+        "title":  "HYUNDAI H-1",
+        "image":  "uploads/2024/11/hyundai-h-1.webp",
+        "gallery":  [
+                        "uploads/2024/11/hyundai-h-1.webp",
+                        "uploads/2024/11/hyundai-h-11.webp",
+                        "uploads/2024/11/hyundai-starex1.webp",
+                        "uploads/2024/11/hyundai-starex3.webp"
+                    ],
+        "specs":  [
+                      "8 мест",
+                      "Комфортный салон",
+                      "Автомат",
+                      "Город/трасса"
+                  ],
+        "price":  "100 USD в день",
+        "description":  "Минивэн для удобной поездки по Ташкенту, аэропортовому трансферу и семейным делам.",
+        "seo_title":  "Аренда HYUNDAI H-1 в Ташкенте | Minivan24",
+        "seo_description":  "HYUNDAI H-1 в аренду для поездок по Ташкенту, трансфера из аэропорта и семейных маршрутов."
+    },
+    {
+        "slug":  "mercedes-benz-sprinter",
+        "title":  "Mercedes-Benz Sprinter",
+        "image":  "uploads/2024/11/mercedes-benz-sprinter.webp",
+        "gallery":  [
+                        "uploads/2024/11/mercedes-benz-sprinter.webp",
+                        "uploads/2024/11/mers.webp",
+                        "uploads/2025/10/hyper-realistic-8k-photograph-of-a-premium-15-seat-768x432.jpg",
+                        "uploads/2025/10/mikroavtobusy-s-voditelem-1-768x512.webp"
+                    ],
+        "specs":  [
+                      "группа гостей",
+                      "Много багажа",
+                      "С водителем",
+                      "Межгород"
+                  ],
+        "price":  "350 USD в день",
+        "description":  "Микроавтобус для больших групп, туристических маршрутов, мероприятий и междугородних поездок.",
+        "seo_title":  "Аренда Mercedes-Benz Sprinter в Ташкенте | Minivan24",
+        "seo_description":  "Mercedes-Benz Sprinter в аренду для больших групп, мероприятий, туров и междугородних поездок."
+    },
+    {
+        "slug":  "toyota-sienna",
+        "title":  "TOYOTA Sienna",
+        "image":  "uploads/2024/11/toyota-sienna.jpg",
+        "gallery":  [
+                        "uploads/2024/11/toyota-sienna.jpg",
+                        "uploads/2024/11/toyota-sienna1.jpg",
+                        "uploads/2026/01/arenda-minivena-s-bagazhnikom-768x432.webp",
+                        "uploads/2025/11/zakazat-miniven-768x432.webp"
+                    ],
+        "specs":  [
+                      "7 мест",
+                      "Премиум-комфорт",
+                      "Автомат",
+                      "Кондиционер"
+                  ],
+        "price":  "100 USD в день",
+        "description":  "Комфортный семейный минивэн для города, трассы и длительных маршрутов.",
+        "seo_title":  "Аренда TOYOTA Sienna в Ташкенте | Minivan24",
+        "seo_description":  "TOYOTA Sienna в аренду в Ташкенте для города, трассы, семейных и длительных поездок."
+    }
+]
