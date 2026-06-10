@@ -189,6 +189,40 @@ p { margin: 0 0 16px; }
   line-height: 1.65;
 }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.hero-sales {
+  min-height: min(780px, 84svh);
+}
+.hero-sales-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr);
+  gap: 42px;
+  align-items: center;
+}
+.hero-copy { min-width: 0; }
+.hero-deal {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.12);
+  box-shadow: 0 28px 78px rgba(0,0,0,.28);
+  backdrop-filter: blur(18px);
+}
+.hero-deal img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.hero-deal-body { padding: 22px; }
+.hero-deal h2 {
+  margin: 6px 0 12px;
+  font-size: 28px;
+  line-height: 1.1;
+}
+.hero-deal strong {
+  display: block;
+  margin-top: 16px;
+  font-size: 22px;
+}
 
 @keyframes heroPhotoIn {
   from { opacity: .86; transform: scale(1.055); }
@@ -224,6 +258,32 @@ p { margin: 0 0 16px; }
   gap: 14px;
   align-items: end;
 }
+.booking-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.booking-head h2 { margin: 4px 0 0; }
+.booking-head p {
+  max-width: 430px;
+  color: var(--muted);
+}
+.booking-grid-expanded {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.booking-wide { grid-column: span 3; }
+.booking-submit {
+  align-self: stretch;
+  min-height: 54px;
+}
+.form-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 label { display: grid; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 700; }
 input, select, textarea {
   width: 100%;
@@ -245,6 +305,7 @@ textarea:focus {
   background: #fff;
 }
 textarea { min-height: 130px; resize: vertical; }
+.booking-grid-expanded textarea { min-height: 54px; }
 
 .grid { display: grid; gap: 22px; }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -456,6 +517,73 @@ textarea { min-height: 130px; resize: vertical; }
   border-top: 1px solid var(--line);
 }
 .price strong { color: var(--accent); font-size: 21px; }
+
+.price-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.price-details .panel {
+  box-shadow: var(--shadow-soft);
+}
+.price-details h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+.price-details ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0 22px;
+}
+.trust-strip article {
+  border: 1px solid rgba(227,231,239,.9);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+}
+.trust-strip strong {
+  display: block;
+  color: var(--accent);
+  font-size: 32px;
+  line-height: 1;
+}
+.trust-strip span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.trust-grid { margin-top: 22px; }
+
+.floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: #19b56b;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 18px 42px rgba(25, 181, 107, .34);
+  transition: transform .24s var(--ease), box-shadow .24s var(--ease), background .24s var(--ease);
+}
+.floating-whatsapp:hover {
+  background: #13985a;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 52px rgba(25, 181, 107, .4);
+}
 
 .feature {
   border: 1px solid rgba(227,231,239,.9);
@@ -769,7 +897,11 @@ textarea { min-height: 130px; resize: vertical; }
 @media (max-width: 1024px) {
   .menu { display: none; }
   .hero h1 { font-size: 44px; }
+  .hero-sales-grid { grid-template-columns: 1fr; }
   .booking-grid { grid-template-columns: repeat(2, 1fr); }
+  .booking-grid-expanded { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .booking-wide { grid-column: span 2; }
+  .trust-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-4,
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cars-track { grid-auto-columns: calc((100% - 22px) / 2); }
@@ -796,10 +928,21 @@ textarea { min-height: 130px; resize: vertical; }
   .section { padding: 60px 0; }
   .section-head { align-items: start; }
   .booking { margin-top: -56px; }
+  .booking-head { display: grid; }
   .booking-grid,
+  .booking-grid-expanded,
   .grid-4,
   .grid-3,
   .grid-2 { grid-template-columns: 1fr; }
+  .booking-wide { grid-column: auto; }
+  .price-details,
+  .trust-strip { grid-template-columns: 1fr; }
+  .floating-whatsapp {
+    right: 14px;
+    bottom: 14px;
+    min-height: 48px;
+    padding: 12px 15px;
+  }
   .detail-specs ul { grid-template-columns: 1fr; }
   .cars-track { grid-auto-columns: 86%; }
   .price { display: grid; }

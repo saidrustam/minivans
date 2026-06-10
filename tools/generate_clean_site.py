@@ -13,7 +13,7 @@ PHONE_HREF = "tel:+998990084000"
 EMAIL = "info@minivan24.uz"
 ADDRESS = "Ташкент, улица Амир Темур 99а"
 TELEGRAM = "https://t.me/minivanuzb"
-WHATSAPP = "https://wa.me/qr/EMOCPKYY4DJOE1"
+WHATSAPP = "https://wa.me/998990084000"
 INSTAGRAM = "https://www.instagram.com/minivanuz/profilecard/?igsh=YmN3bm9vbjE0ajNq"
 LOGO = "uploads/2024/11/minivan24-logo.png"
 FAVICON = "uploads/2024/11/minivan24-favicon.png"
@@ -1052,7 +1052,7 @@ def build():
     )
     cars += header("../", "cars")
     cars += page_hero("Автопарк", "Выберите минивэн или микроавтобус под трансфер, экскурсию, семейную поездку, свадьбу или маршрут по Узбекистану.", "../", cars_data[0]["image"], "Minivan24 cars")
-    cars += '<main><section class="section"><div class="wrap"><div class="grid grid-3">\n' + "".join(car_card(car, "../") for car in cars_data) + f"</div>{service_links('../', 'Подберите услугу под маршрут')}</div></section></main>\n"
+    cars += '<main><section class="section"><div class="wrap"><div class="grid grid-3">\n' + "".join(car_carousel_card(car, "../") for car in cars_data) + f"</div>{service_links('../', 'Подберите услугу под маршрут')}</div></section></main>\n"
     cars += footer("../")
     write(ROOT / "cars/index.html", cars)
 
@@ -1179,6 +1179,163 @@ def build():
     write_robots()
 
     print(f"Generated clean HTML: {1 + 1 + len(SERVICES) + 1 + len(cars_data) + total_pages + len(articles) + 1} pages")
+
+
+_base_build = build
+
+
+def whatsapp_float(prefix=""):
+    return f"""  <a class="floating-whatsapp" href="{WHATSAPP}" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+"""
+
+
+def postprocess_floating_whatsapp():
+    for path in ROOT.rglob("index.html"):
+        html_text = read(path)
+        if not html_text or "floating-whatsapp" in html_text:
+            continue
+        write(path, html_text.replace("</body>", whatsapp_float() + "</body>"))
+
+
+def enhance_home():
+    index_path = ROOT / "index.html"
+    home = read(index_path)
+    if not home:
+        return
+    home_cars = "".join(car_carousel_card(car, "", "cars/") for car in load_cars()[:6])
+
+    home_main = f"""  <main>
+    <section class="hero hero-sales" style="--hero-image: url('{DEFAULT_HERO}')">
+      <div class="wrap hero-sales-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Minivan24 Tashkent</span>
+          <h1>Аренда минивэнов и микроавтобусов в Ташкенте с водителем</h1>
+          <p>KIA Carnival, Hyundai Starex, Mercedes-Benz Sprinter и трансферы для семьи, гостей, свадеб, аэропорта и поездок по Узбекистану. Заранее уточняем маршрут, багаж и цену.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#booking">Рассчитать стоимость</a>
+            <a class="btn ghost" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          </div>
+        </div>
+        <aside class="hero-deal" aria-label="Популярный автомобиль">
+          <img src="uploads/2024/11/kia-carnival-photo-01.webp" alt="KIA Carnival для аренды в Ташкенте">
+          <div class="hero-deal-body">
+            <span class="eyebrow">Популярный выбор</span>
+            <h2>KIA Carnival</h2>
+            <div class="specs"><span>7-8 мест</span><span>Большой багажник</span><span>С водителем</span><span>Подача по Ташкенту</span></div>
+            <strong>от 150 USD / день</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="wrap">
+        <form class="booking-panel" action="{WHATSAPP}" target="_blank" data-whatsapp-form>
+          <div class="booking-head">
+            <div>
+              <span class="eyebrow">Быстрый расчет</span>
+              <h2>Оставьте детали поездки</h2>
+            </div>
+            <p>Менеджер получит заявку в WhatsApp и уточнит цену, автомобиль и время подачи.</p>
+          </div>
+          <div class="booking-grid booking-grid-expanded">
+            <label>Имя<input name="name" autocomplete="name" placeholder="Ваше имя" required></label>
+            <label>Телефон / WhatsApp<input name="phone" autocomplete="tel" inputmode="tel" placeholder="+998" required pattern="^[0-9+()\\s-]{{7,}}$"></label>
+            <label>Куда подать авто?<input name="pickup" placeholder="Аэропорт, отель, адрес"></label>
+            <label>Куда едем?<input name="route" placeholder="Маршрут или конечная точка" required></label>
+            <label>Дата<input type="date" name="date"></label>
+            <label>Время<input type="time" name="time"></label>
+            <label>Пассажиры<input type="number" name="passengers" min="1" max="50" placeholder="Например, 7"></label>
+            <label>Багаж<select name="luggage"><option>Мало багажа</option><option>Чемоданы</option><option>Много багажа</option></select></label>
+            <label>Формат<select name="driver"><option>С водителем</option><option>Без водителя</option><option>Нужно уточнить</option></select></label>
+            <label class="booking-wide">Комментарий<textarea name="comment" placeholder="Детские кресла, ожидание, несколько адресов, ночная подача"></textarea></label>
+            <label class="form-hp">Сайт<input name="website" tabindex="-1" autocomplete="off"></label>
+            <button class="btn booking-submit" type="submit">Рассчитать стоимость</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Услуги</span><h2 class="section-title">Популярные услуги аренды</h2></div><a class="btn ghost" href="services/index.html">Все услуги</a></div>
+        <div class="grid grid-3">
+          <article class="card service-card"><a class="card-media" href="services/arenda-minivena-v-tashkente/index.html"><img src="uploads/2026/06/service-minivan-tashkent-city.webp" alt="Аренда минивэна в Ташкенте" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/arenda-minivena-v-tashkente/index.html">Минивэн для семьи и гостей</a></h2><p>Для аэропорта, города, отеля, экскурсий и поездок с багажом.</p><div class="service-tags"><span>7-8 мест</span><span>KIA Carnival</span><span>багаж</span></div></div></article>
+          <article class="card service-card"><a class="card-media" href="services/transfer-aeroport-tashkent/index.html"><img src="uploads/2026/06/service-airport-transfer-tashkent.webp" alt="Трансфер аэропорт Ташкент" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/transfer-aeroport-tashkent/index.html">Трансфер аэропорт 24/7</a></h2><p>Встреча рейса, помощь с багажом и подача минивэна ко времени.</p><div class="service-tags"><span>рейс</span><span>отель</span><span>ночью</span></div></div></article>
+          <article class="card service-card"><a class="card-media" href="services/mikroavtobus-na-svadbu/index.html"><img src="uploads/2026/06/service-wedding-premium-sprinter-bukhara.webp" alt="Микроавтобус на свадьбу" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/mikroavtobus-na-svadbu/index.html">Свадьбы и группы</a></h2><p>Развоз гостей, несколько адресов, ожидание и комфортный салон.</p><div class="service-tags"><span>гости</span><span>Sprinter</span><span>маршрут</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap grid grid-2 align-start">
+        <div>
+          <span class="eyebrow">Стоимость</span>
+          <h2 class="section-title compact-title">Что входит в 150 USD / день</h2>
+          <p class="lead">Цена становится понятнее, когда клиент сразу видит базовые условия и возможные доплаты.</p>
+        </div>
+        <div class="price-details">
+          <div class="panel"><h3>Включено</h3><ul><li>водитель</li><li>подача по Ташкенту</li><li>до 10 часов аренды</li><li>7-8 мест, кондиционер и большой багажник</li></ul></div>
+          <div class="panel"><h3>Отдельно</h3><ul><li>топливо за городом</li><li>платные парковки</li><li>ночное ожидание</li><li>дальние маршруты по Узбекистану</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">Почему нам доверяют</span>
+        <h2 class="section-title">Понятные условия до поездки</h2>
+        <div class="trust-strip">
+          <article><strong>12</strong><span>автомобилей в автопарке</span></article>
+          <article><strong>24/7</strong><span>подача в аэропорт</span></article>
+          <article><strong>5+ лет</strong><span>опыт водителей</span></article>
+          <article><strong>3 способа</strong><span>оплаты: наличные, карта, перечисление</span></article>
+        </div>
+        <div class="grid grid-4 trust-grid">
+          <article class="feature"><div class="icon">✓</div><h3>Реальные фото</h3><p>Показываем салон, багажник и состояние автомобиля до бронирования.</p></article>
+          <article class="feature"><div class="icon">✓</div><h3>Договор и чек</h3><p>Работаем с частными клиентами, гостями и организациями.</p></article>
+          <article class="feature"><div class="icon">✓</div><h3>Детские кресла</h3><p>По запросу подготовим кресло и учтем багаж заранее.</p></article>
+          <article class="feature"><div class="icon">✓</div><h3>Связь до подачи</h3><p>Подтверждаем автомобиль, водителя и точку встречи.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Автопарк</span><h2 class="section-title">Автомобили под разные задачи</h2></div><div class="carousel-actions"><button class="slider-btn" type="button" data-cars-prev aria-label="Предыдущие автомобили">&lsaquo;</button><button class="slider-btn" type="button" data-cars-next aria-label="Следующие автомобили">&rsaquo;</button><a class="btn ghost" href="cars/index.html">Смотреть автопарк</a></div></div>
+        <div class="cars-carousel" data-cars-carousel><div class="cars-track">{home_cars}</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap grid grid-2 align-start">
+        <div><span class="eyebrow">FAQ</span><h2 class="section-title compact-title">Частые вопросы перед заказом</h2><div class="faq-list">
+          {faq_html([
+            ("Можно ли заказать минивэн в аэропорт?", "Да. Укажите номер рейса, время прилета, количество пассажиров и багаж. Мы согласуем место встречи и подачу."),
+            ("Можно ли арендовать авто без водителя?", "По части автомобилей возможен формат без водителя, но чаще для трансферов и гостей удобнее аренда с водителем."),
+            ("Сколько мест в KIA Carnival?", "Обычно 7-8 мест. Если багажа много, лучше заранее указать количество чемоданов."),
+            ("Есть ли детское кресло?", "Да, подготовим детское кресло по запросу. Сообщите возраст ребенка при заявке."),
+            ("Можно ли оплатить перечислением?", "Да, возможна оплата наличными, картой или перечислением для организаций."),
+            ("Работаете ночью?", "Да, подача в аэропорт и ночные поездки возможны 24/7 по предварительному согласованию."),
+            ("Можно ли заказать микроавтобус на свадьбу?", "Да. Подберем минивэн или Sprinter под количество гостей, адреса и время ожидания."),
+            ("Сколько стоит поездка в Самарканд?", "Цена зависит от даты, маршрута, ожидания, количества пассажиров и класса авто. Отправьте детали, и мы рассчитаем стоимость.")
+          ])}
+        </div></div>
+        <div class="panel"><h2>Нужен точный расчет?</h2><p>Отправьте маршрут, дату, пассажиров и багаж. Мы ответим в WhatsApp и заранее объясним, что входит в цену.</p><p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p></div>
+      </div>
+    </section>
+  </main>
+"""
+    home = re.sub(r"<main>.*?</main>", lambda _: home_main, home, flags=re.S)
+    write(index_path, home)
+
+
+def build():
+    _base_build()
+    enhance_home()
+    postprocess_floating_whatsapp()
 
 
 if __name__ == "__main__":

@@ -49,4 +49,36 @@ document.addEventListener("DOMContentLoaded", () => {
       carousel.scrollBy({ left: step(), behavior: "smooth" });
     });
   });
+
+  document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      const data = new FormData(form);
+      if (data.get("website")) {
+        event.preventDefault();
+        return;
+      }
+
+      const labels = {
+        name: "Имя",
+        phone: "Телефон",
+        pickup: "Подача",
+        route: "Маршрут",
+        date: "Дата",
+        time: "Время",
+        passengers: "Пассажиры",
+        luggage: "Багаж",
+        driver: "Формат",
+        comment: "Комментарий",
+      };
+      const lines = ["Заявка на аренду Minivan24"];
+      Object.entries(labels).forEach(([key, label]) => {
+        const value = String(data.get(key) || "").trim();
+        if (value) lines.push(`${label}: ${value}`);
+      });
+
+      event.preventDefault();
+      const url = `${form.action}?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(url, "_blank", "noopener");
+    });
+  });
 });
