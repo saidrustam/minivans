@@ -14,9 +14,9 @@ ADDRESS = "Ташкент, улица Амир Темур 99а"
 TELEGRAM = "https://t.me/minivanuzb"
 WHATSAPP = "https://wa.me/qr/EMOCPKYY4DJOE1"
 INSTAGRAM = "https://www.instagram.com/minivanuz/profilecard/?igsh=YmN3bm9vbjE0ajNq"
-LOGO = "uploads/2024/11/minivan-logo-2.png"
-FAVICON = "uploads/2024/11/letter-m.png"
-DEFAULT_HERO = "uploads/2024/11/mers.webp"
+LOGO = "uploads/2024/11/minivan24-logo.png"
+FAVICON = "uploads/2024/11/minivan24-favicon.png"
+DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
 NEWS_PAGE_SIZE = 12
 
 def load_cars():

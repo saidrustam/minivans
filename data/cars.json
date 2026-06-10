@@ -2,12 +2,12 @@
     {
         "slug":  "kia-carnival",
         "title":  "KIA Carnival",
-        "image":  "uploads/2024/11/kia-carnival.webp",
+        "image":  "uploads/2024/11/kia-carnival-photo-01.webp",
         "gallery":  [
-                        "uploads/2024/11/kia-carnival.webp",
-                        "uploads/2024/11/kia-carnival3.webp",
-                        "uploads/2024/11/kia-carnival4.webp",
-                        "uploads/2024/11/kia-carnival7.webp"
+                        "uploads/2024/11/kia-carnival-photo-01.webp",
+                        "uploads/2024/11/kia-carnival-photo-02.webp",
+                        "uploads/2024/11/kia-carnival-photo-03.webp",
+                        "uploads/2024/11/kia-carnival-photo-06.webp"
                     ],
         "specs":  [
                       "7-8 мест",
@@ -23,12 +23,12 @@
     {
         "slug":  "kia-carnival-2",
         "title":  "KIA Carnival",
-        "image":  "uploads/2024/11/kia-carnival3.webp",
+        "image":  "uploads/2024/11/kia-carnival-photo-02.webp",
         "gallery":  [
-                        "uploads/2024/11/kia-carnival3.webp",
-                        "uploads/2024/11/kia-carnival5.webp",
-                        "uploads/2024/11/kia-carnival6.webp",
-                        "uploads/2024/11/kia-carnival10.webp"
+                        "uploads/2024/11/kia-carnival-photo-02.webp",
+                        "uploads/2024/11/kia-carnival-photo-04.webp",
+                        "uploads/2024/11/kia-carnival-photo-05.webp",
+                        "uploads/2024/11/kia-carnival-photo-07.webp"
                     ],
         "specs":  [
                       "7 мест",
@@ -44,12 +44,12 @@
     {
         "slug":  "kia-carnival-3",
         "title":  "KIA Carnival",
-        "image":  "uploads/2024/11/kia-carnival4.webp",
+        "image":  "uploads/2024/11/kia-carnival-photo-03.webp",
         "gallery":  [
-                        "uploads/2024/11/kia-carnival4.webp",
-                        "uploads/2024/11/kia-carnival11.webp",
-                        "uploads/2024/11/kia-karnaval2.webp",
-                        "uploads/2024/11/kia-karnaval8.webp"
+                        "uploads/2024/11/kia-carnival-photo-03.webp",
+                        "uploads/2024/11/kia-carnival-photo-08.webp",
+                        "uploads/2024/11/kia-carnival-photo-09.webp",
+                        "uploads/2024/11/kia-carnival-photo-10.webp"
                     ],
         "specs":  [
                       "7-8 мест",
@@ -65,12 +65,12 @@
     {
         "slug":  "kia-carnival-4",
         "title":  "KIA Carnival",
-        "image":  "uploads/2024/11/kia-carnival5.webp",
+        "image":  "uploads/2024/11/kia-carnival-photo-04.webp",
         "gallery":  [
-                        "uploads/2024/11/kia-carnival5.webp",
-                        "uploads/2024/11/kia-carnival.webp",
-                        "uploads/2024/11/kia-carnival6.webp",
-                        "uploads/2024/11/kia-carnival7.webp"
+                        "uploads/2024/11/kia-carnival-photo-04.webp",
+                        "uploads/2024/11/kia-carnival-photo-01.webp",
+                        "uploads/2024/11/kia-carnival-photo-05.webp",
+                        "uploads/2024/11/kia-carnival-photo-06.webp"
                     ],
         "specs":  [
                       "7 мест",
@@ -86,12 +86,12 @@
     {
         "slug":  "kia-carnival-5",
         "title":  "KIA Carnival",
-        "image":  "uploads/2024/11/kia-carnival6.webp",
+        "image":  "uploads/2024/11/kia-carnival-photo-05.webp",
         "gallery":  [
-                        "uploads/2024/11/kia-carnival6.webp",
-                        "uploads/2024/11/kia-carnival10.webp",
-                        "uploads/2024/11/kia-carnival11.webp",
-                        "uploads/2024/11/kia-karnaval8.webp"
+                        "uploads/2024/11/kia-carnival-photo-05.webp",
+                        "uploads/2024/11/kia-carnival-photo-07.webp",
+                        "uploads/2024/11/kia-carnival-photo-08.webp",
+                        "uploads/2024/11/kia-carnival-photo-10.webp"
                     ],
         "specs":  [
                       "7-8 мест",
@@ -107,12 +107,12 @@
     {
         "slug":  "hyundai-starex",
         "title":  "HYUNDAI Starex",
-        "image":  "uploads/2024/11/hyundai-starex.webp",
+        "image":  "uploads/2024/11/hyundai-starex-photo-01.webp",
         "gallery":  [
-                        "uploads/2024/11/hyundai-starex.webp",
-                        "uploads/2024/11/hyundai-starex1.webp",
-                        "uploads/2024/11/hyundai-starex2.webp",
-                        "uploads/2024/11/hyundai-starex3.webp"
+                        "uploads/2024/11/hyundai-starex-photo-01.webp",
+                        "uploads/2024/11/hyundai-starex-photo-02.webp",
+                        "uploads/2024/11/hyundai-starex-photo-03.webp",
+                        "uploads/2024/11/hyundai-starex-photo-04.webp"
                     ],
         "specs":  [
                       "до 11 мест",
@@ -128,12 +128,12 @@
     {
         "slug":  "hyundai-starex-2",
         "title":  "HYUNDAI Starex",
-        "image":  "uploads/2024/11/hyundai-starex2.webp",
+        "image":  "uploads/2024/11/hyundai-starex-photo-03.webp",
         "gallery":  [
-                        "uploads/2024/11/hyundai-starex2.webp",
-                        "uploads/2024/11/hyundai-starex.webp",
-                        "uploads/2024/11/hyundai-starex1.webp",
-                        "uploads/2024/11/hyundai-starex3.webp"
+                        "uploads/2024/11/hyundai-starex-photo-03.webp",
+                        "uploads/2024/11/hyundai-starex-photo-01.webp",
+                        "uploads/2024/11/hyundai-starex-photo-02.webp",
+                        "uploads/2024/11/hyundai-starex-photo-04.webp"
                     ],
         "specs":  [
                       "9 мест",
@@ -149,12 +149,12 @@
     {
         "slug":  "hyundai-h-1",
         "title":  "HYUNDAI H-1",
-        "image":  "uploads/2024/11/hyundai-h-1.webp",
+        "image":  "uploads/2024/11/hyundai-h1-photo-01.webp",
         "gallery":  [
-                        "uploads/2024/11/hyundai-h-1.webp",
-                        "uploads/2024/11/hyundai-h-11.webp",
-                        "uploads/2024/11/hyundai-starex1.webp",
-                        "uploads/2024/11/hyundai-starex3.webp"
+                        "uploads/2024/11/hyundai-h1-photo-01.webp",
+                        "uploads/2024/11/hyundai-h1-photo-02.webp",
+                        "uploads/2024/11/hyundai-starex-photo-02.webp",
+                        "uploads/2024/11/hyundai-starex-photo-04.webp"
                     ],
         "specs":  [
                       "8 мест",
@@ -170,10 +170,10 @@
     {
         "slug":  "mercedes-benz-sprinter",
         "title":  "Mercedes-Benz Sprinter",
-        "image":  "uploads/2024/11/mercedes-benz-sprinter.webp",
+        "image":  "uploads/2024/11/mercedes-sprinter-photo-01.webp",
         "gallery":  [
-                        "uploads/2024/11/mercedes-benz-sprinter.webp",
-                        "uploads/2024/11/mers.webp",
+                        "uploads/2024/11/mercedes-sprinter-photo-01.webp",
+                        "uploads/2024/11/mercedes-sprinter-hero.webp",
                         "uploads/2025/10/mercedes-sprinter-airport-transfer-768x432.jpg",
                         "uploads/2025/10/sprinter-with-driver-evening-transfer-768x512.webp"
                     ],
@@ -191,10 +191,10 @@
     {
         "slug":  "toyota-sienna",
         "title":  "TOYOTA Sienna",
-        "image":  "uploads/2024/11/toyota-sienna.jpg",
+        "image":  "uploads/2024/11/toyota-sienna-photo-01.jpg",
         "gallery":  [
-                        "uploads/2024/11/toyota-sienna.jpg",
-                        "uploads/2024/11/toyota-sienna1.jpg",
+                        "uploads/2024/11/toyota-sienna-photo-01.jpg",
+                        "uploads/2024/11/toyota-sienna-photo-02.jpg",
                         "uploads/2026/01/minivan-large-luggage-airport-768x432.webp",
                         "uploads/2025/11/order-minivan-uzbekistan-trip-768x432.webp"
                     ],

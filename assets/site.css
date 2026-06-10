@@ -157,7 +157,7 @@ p { margin: 0 0 16px; }
   z-index: 0;
 }
 .hero::before {
-  background: var(--hero-image, url("../uploads/2024/11/mers.webp")) center/cover no-repeat;
+  background: var(--hero-image, url("../uploads/2024/11/mercedes-sprinter-hero.webp")) center/cover no-repeat;
   transform: scale(1.018);
   animation: heroPhotoIn 1.35s var(--ease) both;
   filter: saturate(1.04) contrast(1.03);
@@ -205,7 +205,7 @@ p { margin: 0 0 16px; }
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(12,15,24,.88), rgba(12,15,24,.54)),
-    var(--hero-image, url("../uploads/2024/11/mers.webp")) center/cover no-repeat;
+    var(--hero-image, url("../uploads/2024/11/mercedes-sprinter-hero.webp")) center/cover no-repeat;
 }
 .page-hero .lead { color: rgba(255,255,255,.82); }
 
