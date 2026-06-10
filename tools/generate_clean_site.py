@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import date
 import html
 import json
 import math
@@ -18,6 +19,178 @@ LOGO = "uploads/2024/11/minivan24-logo.png"
 FAVICON = "uploads/2024/11/minivan24-favicon.png"
 DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
 NEWS_PAGE_SIZE = 12
+TODAY = date.today().isoformat()
+
+SERVICES = [
+    {
+        "slug": "arenda-minivena-v-tashkente",
+        "title": "Аренда минивэна в Ташкенте",
+        "seo_title": "Аренда минивэна в Ташкенте с водителем и без | Minivan24",
+        "seo_description": "Аренда минивэна в Ташкенте для семьи, гостей, трансфера и поездок по Узбекистану. KIA Carnival, Toyota Sienna, Hyundai H-1, заявка в WhatsApp.",
+        "lead": "Подберём минивэн под количество пассажиров, багаж, маршрут и формат поездки: город, аэропорт, свадьба, экскурсия или междугородний маршрут.",
+        "image": "uploads/2024/11/kia-carnival-photo-01.webp",
+        "eyebrow": "Минивэны",
+        "audience": ["семьи с детьми и багажом", "деловые гости и делегации", "туристы в Ташкенте", "трансферы аэропорт-отель"],
+        "benefits": [
+            ("7-8 посадочных мест", "Комфортный формат для семьи, небольшой группы или VIP-гостей."),
+            ("С водителем или без", "Подскажем подходящий формат аренды под ваш маршрут и опыт вождения."),
+            ("Подача по адресу", "Аэропорт, вокзал, отель, ресторан, офис или частный адрес в Ташкенте."),
+            ("Понятный расчёт", "Стоимость зависит от даты, времени, маршрута, ожидания и багажа."),
+        ],
+        "steps": [
+            "Уточняем дату, время подачи и финальную точку маршрута.",
+            "Считаем пассажиров, багаж, детские кресла и дополнительные остановки.",
+            "Предлагаем подходящую модель и фиксируем условия до поездки.",
+        ],
+        "faq": [
+            ("Можно ли заказать минивэн на несколько часов?", "Да, минивэн можно заказать для короткого трансфера, городской поездки, вечернего мероприятия или аренды на день."),
+            ("Какой минивэн выбрать для 6-7 человек?", "Обычно подходят KIA Carnival, Toyota Sienna или Hyundai H-1. Если багажа много, лучше заранее указать количество чемоданов."),
+            ("Работаете ли вы с туристами из других стран?", "Да, встречаем гостей в аэропорту, помогаем с маршрутом по Ташкенту и поездками по регионам Узбекистана."),
+        ],
+        "related_cars": ["kia-carnival", "toyota-sienna", "hyundai-h-1"],
+        "related_articles": ["kak-vybrat-minivjen-dlja-bolshoj-semi", "arenda-minivena-s-bolshim-bagazhnikom-chemodany-kolyaski-sportinventar"],
+    },
+    {
+        "slug": "arenda-mikroavtobusa-v-tashkente",
+        "title": "Аренда микроавтобуса в Ташкенте",
+        "seo_title": "Аренда микроавтобуса в Ташкенте для группы | Minivan24",
+        "seo_description": "Аренда микроавтобуса в Ташкенте для трансфера, экскурсий, свадьбы, делегации и поездок по Узбекистану. Mercedes-Benz Sprinter, Hyundai Starex.",
+        "lead": "Микроавтобус удобен, когда нужно перевезти группу с багажом, сохранить общий маршрут и заранее понимать стоимость поездки.",
+        "image": "uploads/2024/11/mercedes-sprinter-photo-01.webp",
+        "eyebrow": "Микроавтобусы",
+        "audience": ["туристические группы", "корпоративные поездки", "свадебные гости", "междугородние маршруты"],
+        "benefits": [
+            ("До 11+ мест", "Подбираем вместимость под реальное количество пассажиров и багажа."),
+            ("Опытный водитель", "Маршрут, ожидания, остановки и подача согласуются заранее."),
+            ("Город и регионы", "Ташкент, Самарканд, Бухара, Чарвак и другие направления."),
+            ("Без сюрпризов", "Обсуждаем время, километраж, ожидание, ночёвку водителя и доплаты до старта."),
+        ],
+        "steps": [
+            "Определяем состав группы, багаж и требования к салону.",
+            "Согласовываем маршрут, длительность, ожидание и обратную подачу.",
+            "Подбираем микроавтобус и отправляем финальные условия бронирования.",
+        ],
+        "faq": [
+            ("Когда нужен микроавтобус, а не минивэн?", "Если пассажиров больше 7-8, много багажа или маршрут длинный, микроавтобус обычно комфортнее и экономичнее."),
+            ("Можно ли поехать из Ташкента в Самарканд?", "Да, организуем междугородние поездки и многодневные маршруты по Узбекистану."),
+            ("Цена считается за день или за маршрут?", "Зависит от задачи: трансфер, почасовая аренда, аренда на день или межгород считаются по-разному."),
+        ],
+        "related_cars": ["mercedes-benz-sprinter", "hyundai-starex", "hyundai-starex-2"],
+        "related_articles": ["arenda-mikroavtobusa", "skolko-stoit-arenda-mikroavtobusa-v-tashkente-polnyy-razbor-tsen"],
+    },
+    {
+        "slug": "arenda-avto-s-voditelem-v-tashkente",
+        "title": "Аренда авто с водителем в Ташкенте",
+        "seo_title": "Аренда авто с водителем в Ташкенте | Minivan24",
+        "seo_description": "Аренда авто с водителем в Ташкенте для деловых встреч, трансферов, экскурсий, семейных поездок и мероприятий. Минивэны и микроавтобусы.",
+        "lead": "Водитель берёт на себя маршрут, парковки, ожидание и дорожные нюансы, а вы сохраняете время и спокойный график.",
+        "image": "uploads/2025/07/car-with-driver-tashkent-768x432.webp",
+        "eyebrow": "С водителем",
+        "audience": ["деловые встречи", "встреча гостей", "поездки по городу", "маршруты по регионам"],
+        "benefits": [
+            ("Пунктуальная подача", "Время и адрес фиксируются заранее, включая аэропорт и вокзал."),
+            ("Маршрут под задачу", "Помогаем спланировать остановки, ожидание и обратную поездку."),
+            ("Чистый автомобиль", "Минивэны и микроавтобусы подходят для гостей, семьи и делегаций."),
+            ("Связь до поездки", "Заявку можно быстро отправить в WhatsApp или Telegram."),
+        ],
+        "steps": [
+            "Получаем маршрут, дату, время и количество пассажиров.",
+            "Уточняем формат: трансфер, аренда на часы, день или межгород.",
+            "Подтверждаем автомобиль, водителя и стоимость.",
+        ],
+        "faq": [
+            ("Можно ли заказать водителя на весь день?", "Да, аренда на день подходит для деловых встреч, экскурсий и поездок по нескольким адресам."),
+            ("Водитель встретит в аэропорту?", "Да, можно согласовать встречу, ожидание рейса и помощь с багажом."),
+            ("Можно ли изменить маршрут в день поездки?", "Небольшие изменения обычно возможны, но лучше согласовать их заранее, чтобы корректно рассчитать время и стоимость."),
+        ],
+        "related_cars": ["kia-carnival", "hyundai-h-1", "mercedes-benz-sprinter"],
+        "related_articles": ["arenda-avto-s-voditelem-v-tashkente", "preimuschestva-arendy-mikroavtobusa-s-voditelem"],
+    },
+    {
+        "slug": "transfer-aeroport-tashkent",
+        "title": "Трансфер из аэропорта Ташкента",
+        "seo_title": "Трансфер из аэропорта Ташкента на минивэне | Minivan24",
+        "seo_description": "Трансфер из аэропорта Ташкента на минивэне или микроавтобусе для семьи, туристов и делегаций. Встреча, багаж, подача к рейсу.",
+        "lead": "Организуем встречу в аэропорту, подачу минивэна или микроавтобуса, место для багажа и спокойную поездку до отеля, офиса или другого города.",
+        "image": "uploads/2025/03/tashkent-airport-transfer-768x432.webp",
+        "eyebrow": "Аэропорт",
+        "audience": ["прилёт семьи", "встреча делегации", "туристическая группа", "трансфер в другой город"],
+        "benefits": [
+            ("Встреча рейса", "Учитываем время прилёта, багаж и возможное ожидание."),
+            ("Место для чемоданов", "Подбираем класс авто с учётом пассажиров и багажа."),
+            ("Подача 24/7", "Можно заказать ранний, ночной или срочный трансфер."),
+            ("Дальше Ташкента", "По запросу едем в Самарканд, Чарвак и другие направления."),
+        ],
+        "steps": [
+            "Получаем номер рейса, дату и время прилёта.",
+            "Уточняем пассажиров, багаж, детские кресла и конечный адрес.",
+            "Подтверждаем автомобиль, место встречи и контакт водителя.",
+        ],
+        "faq": [
+            ("Что делать, если рейс задержали?", "Сообщите нам номер рейса: при расчёте можно заранее учесть ожидание и корректировку времени подачи."),
+            ("Можно ли заказать большой микроавтобус в аэропорт?", "Да, для групп и делегаций подойдёт Mercedes-Benz Sprinter или Hyundai Starex."),
+            ("Есть ли трансфер из аэропорта в Самарканд?", "Да, возможны междугородние трансферы из аэропорта Ташкента по согласованному маршруту."),
+        ],
+        "related_cars": ["kia-carnival", "hyundai-starex", "mercedes-benz-sprinter"],
+        "related_articles": ["transfer-v-ajeroportu-tashkenta", "transfer-v-tashkente-iz-aeroporta-puteshestvie-bez-stressa"],
+    },
+    {
+        "slug": "mikroavtobus-na-svadbu",
+        "title": "Микроавтобус на свадьбу в Ташкенте",
+        "seo_title": "Аренда микроавтобуса на свадьбу в Ташкенте | Minivan24",
+        "seo_description": "Аренда минивэна или микроавтобуса на свадьбу в Ташкенте для гостей, кортежа и развоза после мероприятия. Подача по адресам.",
+        "lead": "Помогаем организовать развоз гостей, встречу родственников, поездку между локациями и возвращение после мероприятия без хаоса в расписании.",
+        "image": "uploads/2025/12/wedding-minibus-guest-transfer-768x432.webp",
+        "eyebrow": "Свадьбы",
+        "audience": ["развоз гостей", "встреча родственников", "кортеж минивэнов", "вечернее возвращение"],
+        "benefits": [
+            ("Единый график", "Маршрут и время подачи фиксируются до мероприятия."),
+            ("Несколько адресов", "Можно запланировать ресторан, ЗАГС, фотосессию и обратный развоз."),
+            ("Комфорт для гостей", "Вместительный салон, кондиционер и место для вещей."),
+            ("Вечерняя подача", "Согласуем позднее возвращение после банкета."),
+        ],
+        "steps": [
+            "Собираем список адресов, время церемонии и банкета.",
+            "Считаем гостей по направлениям и выбираем класс транспорта.",
+            "Фиксируем маршрут, ответственного контактного человека и стоимость.",
+        ],
+        "faq": [
+            ("Можно ли заказать несколько машин?", "Да, для больших свадеб можно комбинировать минивэны и микроавтобусы."),
+            ("Можно ли сделать развоз гостей после банкета?", "Да, заранее согласуем время окончания, адреса и количество направлений."),
+            ("Нужно ли платить за ожидание?", "Если водитель ждёт между этапами, ожидание лучше заранее включить в расчёт."),
+        ],
+        "related_cars": ["kia-carnival", "hyundai-starex", "mercedes-benz-sprinter"],
+        "related_articles": ["arenda-mikroavtobusa-na-svadbu-razvoz-gostey-bez-zaderzhek-i-doplat"],
+    },
+    {
+        "slug": "poezdki-po-uzbekistanu",
+        "title": "Поездки по Узбекистану на минивэне",
+        "seo_title": "Минивэн или микроавтобус для поездки по Узбекистану | Minivan24",
+        "seo_description": "Аренда минивэна или микроавтобуса для поездок по Узбекистану: Самарканд, Бухара, Хива, Чарвак, групповые туры и семейные маршруты.",
+        "lead": "Подберём транспорт для однодневной поездки, многодневного тура или маршрута между городами Узбекистана с понятным расчётом и комфортным салоном.",
+        "image": "uploads/2026/01/uzbekistan-minibus-road-trip-768x432.webp",
+        "eyebrow": "Маршруты",
+        "audience": ["Самарканд и Бухара", "Чарвак и горы", "семейный тур", "групповая экскурсия"],
+        "benefits": [
+            ("Маршрут под группу", "Учитываем расстояние, остановки, питание, багаж и время в пути."),
+            ("Междугородний опыт", "Подбираем транспорт и водителя под длинную дорогу."),
+            ("Гибкий график", "Можно ехать одним днём или строить многодневный маршрут."),
+            ("Комфорт в пути", "Кондиционер, просторный салон и место для чемоданов."),
+        ],
+        "steps": [
+            "Получаем города, даты, примерное количество остановок и ночёвок.",
+            "Считаем пассажиров, багаж и требования к автомобилю.",
+            "Предлагаем формат аренды и финальный маршрутный расчёт.",
+        ],
+        "faq": [
+            ("Какие направления самые популярные?", "Часто заказывают Самарканд, Бухару, Чарвак, горные маршруты и обзорные поездки по Ташкенту."),
+            ("Можно ли ехать на несколько дней?", "Да, многодневные маршруты согласуются заранее с учётом графика водителя и ночёвок."),
+            ("Что влияет на цену межгорода?", "Расстояние, длительность, ожидание, ночёвка, сезон, класс автомобиля и количество пассажиров."),
+        ],
+        "related_cars": ["mercedes-benz-sprinter", "hyundai-starex", "toyota-sienna"],
+        "related_articles": ["top-5-populjarnyh-marshrutov-po-uzbekistanu", "marshruty-po-uzbekistanu-dlya-samostoyatelnyh-poezdok-gotovye-treki-vremya-v-puti-i-udobnye-ostanovki"],
+    },
+]
 
 def load_cars():
     data = json.loads((ROOT / "data/cars.json").read_text(encoding="utf-8-sig"))
@@ -116,10 +289,119 @@ def json_ld(data):
     return value.replace("</", "<\\/")
 
 
-def head(title, description, prefix, canonical=None, image=None, page_type="website", structured_data=None):
+def organization_schema():
+    return {
+        "@context": "https://schema.org",
+        "@type": "AutoRental",
+        "@id": absolute_url("#organization"),
+        "name": "Minivan24",
+        "url": absolute_url(),
+        "logo": absolute_url(LOGO),
+        "image": absolute_url(DEFAULT_HERO),
+        "telephone": PHONE,
+        "email": EMAIL,
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "улица Амир Темур 99а",
+            "addressLocality": "Ташкент",
+            "addressCountry": "UZ",
+        },
+        "areaServed": [
+            {"@type": "City", "name": "Ташкент"},
+            {"@type": "Country", "name": "Узбекистан"},
+        ],
+        "sameAs": [TELEGRAM, INSTAGRAM, WHATSAPP],
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59",
+        },
+    }
+
+
+def website_schema():
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": absolute_url("#website"),
+        "url": absolute_url(),
+        "name": "Minivan24",
+        "inLanguage": "ru",
+        "publisher": {"@id": absolute_url("#organization")},
+    }
+
+
+def breadcrumb_schema(items):
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": index + 1, "name": name, "item": url}
+            for index, (name, url) in enumerate(items)
+        ],
+    }
+
+
+def faq_schema(faq_items):
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {"@type": "Answer", "text": answer},
+            }
+            for question, answer in faq_items
+        ],
+    }
+
+
+def service_schema(service):
+    service_url = absolute_url(f"services/{service['slug']}/")
+    return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": service_url + "#service",
+        "name": service["title"],
+        "serviceType": service["title"],
+        "description": service["seo_description"],
+        "url": service_url,
+        "provider": {"@id": absolute_url("#organization")},
+        "areaServed": [
+            {"@type": "City", "name": "Ташкент"},
+            {"@type": "Country", "name": "Узбекистан"},
+        ],
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "priceSpecification": {"@type": "PriceSpecification", "description": "Индивидуальный расчёт по маршруту"},
+            "url": service_url,
+        },
+    }
+
+
+def schema_list(*items):
+    result = []
+    for item in items:
+        if not item:
+            continue
+        if isinstance(item, list):
+            result.extend(item)
+        else:
+            result.append(item)
+    return result
+
+
+def head(title, description, prefix, canonical=None, image=None, page_type="website", structured_data=None, noindex=False):
     canonical_html = f'  <link rel="canonical" href="{e(canonical)}">\n' if canonical else ""
     og_url = f'  <meta property="og:url" content="{e(canonical)}">\n' if canonical else ""
-    og_image = f'  <meta property="og:image" content="{e(absolute_url(image))}">\n' if image else ""
+    image = image or DEFAULT_HERO
+    og_image = f'  <meta property="og:image" content="{e(absolute_url(image))}">\n'
+    robots = "noindex,follow" if noindex else "index,follow"
     schema = ""
     if structured_data:
         schema = f'  <script type="application/ld+json">{json_ld(structured_data)}</script>\n'
@@ -130,10 +412,16 @@ def head(title, description, prefix, canonical=None, image=None, page_type="webs
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{e(title)}</title>
   <meta name="description" content="{e(description)}">
+  <meta name="robots" content="{robots}">
 {canonical_html}  <meta property="og:type" content="{e(page_type)}">
+  <meta property="og:site_name" content="Minivan24">
+  <meta property="og:locale" content="ru_RU">
   <meta property="og:title" content="{e(title)}">
   <meta property="og:description" content="{e(description)}">
 {og_url}{og_image}  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{e(title)}">
+  <meta name="twitter:description" content="{e(description)}">
+  <meta name="twitter:image" content="{e(absolute_url(image))}">
   <link rel="icon" href="{e(rel(prefix, FAVICON))}">
   <link rel="stylesheet" href="{e(rel(prefix, 'assets/site.css'))}">
   <script src="{e(rel(prefix, 'assets/site.js'))}" defer></script>
@@ -163,6 +451,7 @@ def header(prefix, active):
       <a class="logo" href="{e(rel(prefix, 'index.html'))}" aria-label="Minivan24"><img src="{e(rel(prefix, LOGO))}" alt="Minivan24"></a>
       <nav class="menu" aria-label="Главное меню">
         <a href="{e(rel(prefix, 'index.html'))}"{cls('home')}>Главная</a>
+        <a href="{e(rel(prefix, 'services/index.html'))}"{cls('services')}>Услуги</a>
         <a href="{e(rel(prefix, 'cars/index.html'))}"{cls('cars')}>Автопарк</a>
         <a href="{e(rel(prefix, 'news/index.html'))}"{cls('news')}>Новости</a>
         <a href="{e(rel(prefix, 'kontakty/index.html'))}"{cls('contacts')}>Контакты</a>
@@ -179,6 +468,7 @@ def footer(prefix):
       <a href="{e(rel(prefix, 'index.html'))}"><img src="{e(rel(prefix, LOGO))}" alt="Minivan24"></a>
       <div class="footer-links">
         <a href="{e(rel(prefix, 'index.html'))}">Главная</a>
+        <a href="{e(rel(prefix, 'services/index.html'))}">Услуги</a>
         <a href="{e(rel(prefix, 'cars/index.html'))}">Автопарк</a>
         <a href="{e(rel(prefix, 'news/index.html'))}">Новости</a>
         <a href="{e(rel(prefix, 'kontakty/index.html'))}">Контакты</a>
@@ -210,35 +500,52 @@ def car_seo_description(car):
     return car.get("seo_description") or car["description"]
 
 
+def price_currency(price):
+    value = str(price or "").upper()
+    if "USD" in value or "$" in value:
+        return "USD"
+    if "UZS" in value or "СУМ" in value:
+        return "UZS"
+    return "USD"
+
+
+def price_value(price):
+    found = re.search(r"\d+(?:[.,]\d+)?", str(price or ""))
+    return found.group(0).replace(",", ".") if found else None
+
+
 def car_schema(car):
     car_url = absolute_url(f"cars/{car['slug']}/")
-    return [
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Главная", "item": absolute_url()},
-                {"@type": "ListItem", "position": 2, "name": "Автопарк", "item": absolute_url("cars/")},
-                {"@type": "ListItem", "position": 3, "name": car["title"], "item": car_url},
-            ],
-        },
+    price = price_value(car.get("price"))
+    offer = {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": price_currency(car.get("price")),
+        "priceSpecification": {"@type": "PriceSpecification", "description": car.get("price", "по запросу")},
+        "seller": {"@id": absolute_url("#organization")},
+        "url": car_url,
+    }
+    if price:
+        offer["price"] = price
+    return schema_list(
+        organization_schema(),
+        breadcrumb_schema([
+            ("Главная", absolute_url()),
+            ("Автопарк", absolute_url("cars/")),
+            (car["title"], car_url),
+        ]),
         {
             "@context": "https://schema.org",
             "@type": "Car",
+            "@id": car_url + "#car",
             "name": car["title"],
             "description": car_seo_description(car),
             "image": [absolute_url(image) for image in car.get("gallery", [car["image"]])],
             "url": car_url,
             "brand": {"@type": "Brand", "name": car["title"].split()[0]},
-            "offers": {
-                "@type": "Offer",
-                "availability": "https://schema.org/InStock",
-                "priceCurrency": "UZS",
-                "priceSpecification": {"@type": "PriceSpecification", "description": car.get("price", "по запросу")},
-                "seller": {"@type": "Organization", "name": "Minivan24", "telephone": PHONE},
-            },
+            "offers": offer,
         },
-    ]
+    )
 
 
 def car_card(car, prefix, link_prefix=""):
@@ -364,16 +671,30 @@ def write(path, content):
     path.write_text(content, encoding="utf-8", newline="\n")
 
 
-def write_sitemap(cars_data, articles):
+def sitemap_item(url, changefreq="weekly", priority="0.7"):
+    return (
+        "  <url>"
+        f"<loc>{e(absolute_url(url))}</loc>"
+        f"<lastmod>{TODAY}</lastmod>"
+        f"<changefreq>{changefreq}</changefreq>"
+        f"<priority>{priority}</priority>"
+        "</url>"
+    )
+
+
+def write_sitemap(cars_data, articles, total_news_pages):
     urls = [
-        "",
-        "cars/",
-        "news/",
-        "kontakty/",
+        ("", "weekly", "1.0"),
+        ("services/", "weekly", "0.95"),
+        ("cars/", "weekly", "0.9"),
+        ("news/", "weekly", "0.75"),
+        ("kontakty/", "monthly", "0.8"),
     ]
-    urls.extend(f"cars/{car['slug']}/" for car in cars_data)
-    urls.extend(f"news/{article['slug']}/" for article in articles)
-    items = "\n".join(f"  <url><loc>{e(absolute_url(url))}</loc></url>" for url in urls)
+    urls.extend((f"services/{service['slug']}/", "weekly", "0.92") for service in SERVICES)
+    urls.extend((f"cars/{car['slug']}/", "weekly", "0.86") for car in cars_data)
+    urls.extend((f"news/page/{page}/", "weekly", "0.55") for page in range(2, total_news_pages + 1))
+    urls.extend((f"news/{article['slug']}/", "monthly", "0.62") for article in articles)
+    items = "\n".join(sitemap_item(*item) for item in urls)
     write(
         ROOT / "sitemap.xml",
         f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -394,32 +715,44 @@ def article_seo_description(article):
 
 def article_schema(article):
     article_url = absolute_url(f"news/{article['slug']}/")
-    return [
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Главная", "item": absolute_url()},
-                {"@type": "ListItem", "position": 2, "name": "Новости", "item": absolute_url("news/")},
-                {"@type": "ListItem", "position": 3, "name": article["title"], "item": article_url},
-            ],
-        },
+    return schema_list(
+        organization_schema(),
+        breadcrumb_schema([
+            ("Главная", absolute_url()),
+            ("Новости", absolute_url("news/")),
+            (article["title"], article_url),
+        ]),
         {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": article_url + "#article",
             "headline": article["title"],
             "description": article_seo_description(article),
             "image": absolute_url(article["image"]),
             "url": article_url,
             "mainEntityOfPage": article_url,
-            "author": {"@type": "Organization", "name": "Minivan24"},
+            "inLanguage": "ru",
+            "dateModified": TODAY,
+            "author": {"@id": absolute_url("#organization")},
             "publisher": {
                 "@type": "Organization",
                 "name": "Minivan24",
                 "logo": {"@type": "ImageObject", "url": absolute_url(LOGO)},
             },
         },
-    ]
+    )
+
+
+def write_robots():
+    write(
+        ROOT / "robots.txt",
+        f"""User-agent: *
+Allow: /
+
+Sitemap: {absolute_url('sitemap.xml')}
+Host: {SITE_URL}
+""",
+    )
 
 
 def news_card(article, prefix, link_prefix):
@@ -445,6 +778,178 @@ def pagination(current, total, index_href, page_base):
     return '<nav class="pagination" aria-label="Страницы новостей">' + "".join(links) + "</nav>"
 
 
+def service_by_slug(slug):
+    return next((service for service in SERVICES if service["slug"] == slug), None)
+
+
+def service_card(service, prefix, link_prefix=""):
+    return f"""          <article class="card service-card">
+            <a class="card-media" href="{e(link_prefix + service['slug'])}/index.html"><img src="{e(rel(prefix, service['image']))}" alt="{e(service['title'])}"></a>
+            <div class="card-body">
+              <h2><a class="card-title" href="{e(link_prefix + service['slug'])}/index.html">{e(service['title'])}</a></h2>
+              <p>{e(service['lead'])}</p>
+              <div class="service-tags">{"".join(f"<span>{e(item)}</span>" for item in service["audience"][:3])}</div>
+              <div class="price"><strong>Подбор авто</strong><a class="btn ghost" href="{e(link_prefix + service['slug'])}/index.html">Подробнее</a></div>
+            </div>
+          </article>
+"""
+
+
+def service_links(prefix, title="Популярные услуги", current_slug=None):
+    links = "".join(
+        f'<a href="{e(rel(prefix, "services/" + service["slug"] + "/index.html"))}">{e(service["title"])}</a>'
+        for service in SERVICES
+        if service["slug"] != current_slug
+    )
+    return f"""        <aside class="service-links" aria-label="{e(title)}">
+          <strong>{e(title)}</strong>
+          <div>{links}</div>
+        </aside>
+"""
+
+
+def faq_html(faq_items):
+    return "".join(
+        f"""          <details class="faq-item">
+            <summary>{e(question)}</summary>
+            <p>{e(answer)}</p>
+          </details>
+"""
+        for question, answer in faq_items
+    )
+
+
+def steps_html(steps):
+    return "".join(
+        f"""          <li>
+            <span>{index}</span>
+            <p>{e(step)}</p>
+          </li>
+"""
+        for index, step in enumerate(steps, 1)
+    )
+
+
+def related_cars_html(service, cars_data, prefix):
+    wanted = set(service.get("related_cars", []))
+    cars = [car for car in cars_data if car["slug"] in wanted]
+    if not cars:
+        return ""
+    return "".join(car_card(car, prefix, "../../cars/") for car in cars)
+
+
+def related_articles_html(service, articles, prefix):
+    wanted = set(service.get("related_articles", []))
+    items = [article for article in articles if article["slug"] in wanted]
+    if not items:
+        return ""
+    return "".join(news_card(article, prefix, "../../news/") for article in items)
+
+
+def service_page(service, cars_data, articles):
+    prefix = "../../"
+    url = absolute_url(f"services/{service['slug']}/")
+    benefits = "".join(
+        f'<article class="feature"><div class="icon">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
+        for title, text in service["benefits"]
+    )
+    audience = "".join(f"<li>{e(item)}</li>" for item in service["audience"])
+    related_cars = related_cars_html(service, cars_data, prefix)
+    related_articles = related_articles_html(service, articles, prefix)
+    page = head(
+        service["seo_title"],
+        service["seo_description"],
+        prefix,
+        canonical=url,
+        image=service["image"],
+        page_type="website",
+        structured_data=schema_list(
+            organization_schema(),
+            breadcrumb_schema([
+                ("Главная", absolute_url()),
+                ("Услуги", absolute_url("services/")),
+                (service["title"], url),
+            ]),
+            service_schema(service),
+            faq_schema(service["faq"]),
+        ),
+    )
+    page += header(prefix, "services")
+    page += page_hero(service["title"], service["lead"], prefix, service["image"], service["eyebrow"])
+    page += f"""  <main>
+    <section class="section">
+      <div class="wrap grid grid-2 align-start">
+        <div>
+          <span class="eyebrow">Семантика запроса</span>
+          <h2 class="section-title compact-title">Когда подходит эта услуга</h2>
+          <p class="lead">Посадочная страница закрывает коммерческий интент: человеку нужно быстро понять, подойдёт ли формат, сколько факторов влияет на цену и как оформить заявку без лишней переписки.</p>
+          <ul class="check-list">{audience}</ul>
+        </div>
+        <div class="panel order-panel">
+          <h2>Что прислать для расчёта</h2>
+          <p>Дата, время подачи, маршрут, количество пассажиров, багаж, детские кресла и желаемый класс автомобиля.</p>
+          <a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Получить расчёт в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+    <section class="section soft">
+      <div class="wrap">
+        <span class="eyebrow">Коммерческие факторы</span>
+        <h2 class="section-title">Что важно перед бронированием</h2>
+        <div class="grid grid-4">{benefits}</div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap grid grid-2 align-start">
+        <div>
+          <span class="eyebrow">Порядок работы</span>
+          <h2 class="section-title compact-title">Как мы подбираем транспорт</h2>
+          <ol class="steps">{steps_html(service["steps"])}          </ol>
+        </div>
+        <div>
+          {service_links(prefix, "Смежные услуги", service["slug"])}
+        </div>
+      </div>
+    </section>
+"""
+    if related_cars:
+        page += f"""    <section class="section soft">
+      <div class="wrap">
+        <span class="eyebrow">Автомобили</span>
+        <h2 class="section-title">Подходящие варианты из автопарка</h2>
+        <div class="grid grid-3">{related_cars}</div>
+      </div>
+    </section>
+"""
+    page += f"""    <section class="section">
+      <div class="wrap grid grid-2 align-start">
+        <div>
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title compact-title">Частые вопросы</h2>
+          <div class="faq-list">{faq_html(service["faq"])}          </div>
+        </div>
+        <div class="panel">
+          <h2>Заявка без лишних шагов</h2>
+          <p>Мы не просим заполнять длинную форму: достаточно написать маршрут и дату. Менеджер уточнит детали и предложит подходящий автомобиль.</p>
+          <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p>
+        </div>
+      </div>
+    </section>
+"""
+    if related_articles:
+        page += f"""    <section class="section soft">
+      <div class="wrap">
+        <span class="eyebrow">Полезно прочитать</span>
+        <h2 class="section-title">Материалы по теме</h2>
+        <div class="grid grid-2">{related_articles}</div>
+      </div>
+    </section>
+"""
+    page += "  </main>\n"
+    page += footer(prefix)
+    return page
+
+
 def build():
     articles = load_news()
     cars_data = load_cars()
@@ -459,7 +964,20 @@ def build():
         ]
     )
     home_cards = "".join(car_carousel_card(car, "", "cars/") for car in cars_data[:6])
-    home = head("Аренда минивэнов в Ташкенте | Minivan24", "Аренда минивэнов и микроавтобусов в Ташкенте с водителем и без.", "")
+    home_service_cards = "".join(service_card(service, "", "services/") for service in SERVICES)
+    home_faq = [
+        ("Сколько стоит аренда минивэна в Ташкенте?", "Стоимость зависит от класса автомобиля, маршрута, длительности аренды, ожидания, подачи и количества багажа."),
+        ("Можно ли заказать микроавтобус с водителем?", "Да, микроавтобусы и минивэны можно заказать с водителем для трансфера, экскурсии, свадьбы, деловой поездки или маршрута по Узбекистану."),
+        ("Как быстро можно оформить заявку?", "Напишите дату, маршрут и количество пассажиров в WhatsApp или Telegram. Мы уточним детали и предложим подходящий автомобиль."),
+    ]
+    home = head(
+        "Аренда минивэнов и микроавтобусов в Ташкенте | Minivan24",
+        "Аренда минивэнов и микроавтобусов в Ташкенте с водителем и без: трансферы, свадьбы, экскурсии, поездки по Узбекистану, заявка в WhatsApp.",
+        "",
+        canonical=absolute_url(),
+        image=DEFAULT_HERO,
+        structured_data=schema_list(organization_schema(), website_schema(), faq_schema(home_faq)),
+    )
     home += header("", "home")
     home += f"""  <main>
     <section class="hero" style="--hero-image: url('{DEFAULT_HERO}')">
@@ -478,17 +996,58 @@ def build():
         <label>Дата начала<input type="date" name="start"></label><label>Время<input type="time" name="time"></label><button class="btn" type="submit">Отправить</button>
       </div>
     </form></div></section>
+    <section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Услуги</span><h2 class="section-title">Посадочные страницы под реальные задачи</h2></div><a class="btn ghost" href="services/index.html">Все услуги</a></div><div class="grid grid-3">{home_service_cards}</div></div></section>
     <section class="section"><div class="wrap"><span class="eyebrow">Почему выбирают нас</span><h2 class="section-title">Сервис аренды, который удобно планировать заранее</h2><p class="lead">Мы делаем поездку предсказуемой: помогаем выбрать формат, согласовать маршрут, время подачи и подходящий автомобиль под количество пассажиров и багажа.</p><div class="grid grid-4" style="margin-top:32px">{feature_html}</div></div></section>
     <section class="section soft"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Автопарк</span><h2 class="section-title">Лучшие предложения</h2></div><div class="carousel-actions"><button class="slider-btn" type="button" data-cars-prev aria-label="Предыдущие автомобили">&lsaquo;</button><button class="slider-btn" type="button" data-cars-next aria-label="Следующие автомобили">&rsaquo;</button></div></div><div class="cars-carousel" data-cars-carousel><div class="cars-track">{home_cards}</div></div></div></section>
+    <section class="section"><div class="wrap grid grid-2 align-start"><div><span class="eyebrow">FAQ</span><h2 class="section-title compact-title">Частые вопросы перед заказом</h2><div class="faq-list">{faq_html(home_faq)}</div></div><div class="panel"><h2>Нужен точный расчёт?</h2><p>Пришлите дату, маршрут, количество пассажиров и багаж. Мы подберём минивэн или микроавтобус и заранее объясним, из чего складывается цена.</p><p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p></div></div></section>
   </main>
 """
     home += footer("")
     write(ROOT / "index.html", home)
 
-    cars = head("Автопарк | Minivan24", "Минивэны и микроавтобусы в аренду в Ташкенте.", "../")
+    services_cards = "".join(service_card(service, "../") for service in SERVICES)
+    services = head(
+        "Услуги аренды минивэнов и микроавтобусов | Minivan24",
+        "Услуги Minivan24: аренда минивэна, микроавтобуса, авто с водителем, трансфер из аэропорта, свадьбы и поездки по Узбекистану.",
+        "../",
+        canonical=absolute_url("services/"),
+        image=DEFAULT_HERO,
+        structured_data=schema_list(
+            organization_schema(),
+            breadcrumb_schema([("Главная", absolute_url()), ("Услуги", absolute_url("services/"))]),
+        ),
+    )
+    services += header("../", "services")
+    services += page_hero("Услуги аренды транспорта", "Отдельные посадочные страницы под основные задачи: минивэн, микроавтобус, водитель, аэропорт, свадьба и маршруты по Узбекистану.", "../", DEFAULT_HERO, "Minivan24 services")
+    services += f"""  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Семантические кластеры</span><h2 class="section-title">Выберите задачу поездки</h2></div></div>
+        <div class="grid grid-3">{services_cards}</div>
+      </div>
+    </section>
+  </main>
+"""
+    services += footer("../")
+    write(ROOT / "services/index.html", services)
+
+    for service in SERVICES:
+        write(ROOT / "services" / service["slug"] / "index.html", service_page(service, cars_data, articles))
+
+    cars = head(
+        "Автопарк минивэнов и микроавтобусов в Ташкенте | Minivan24",
+        "Минивэны и микроавтобусы в аренду в Ташкенте: KIA Carnival, Hyundai Starex, Hyundai H-1, Mercedes-Benz Sprinter, Toyota Sienna.",
+        "../",
+        canonical=absolute_url("cars/"),
+        image=cars_data[0]["image"],
+        structured_data=schema_list(
+            organization_schema(),
+            breadcrumb_schema([("Главная", absolute_url()), ("Автопарк", absolute_url("cars/"))]),
+        ),
+    )
     cars += header("../", "cars")
     cars += page_hero("Автопарк", "Выберите минивэн или микроавтобус под трансфер, экскурсию, семейную поездку, свадьбу или маршрут по Узбекистану.", "../", cars_data[0]["image"], "Minivan24 cars")
-    cars += '<main><section class="section"><div class="wrap"><div class="grid grid-3">\n' + "".join(car_card(car, "../") for car in cars_data) + "</div></div></section></main>\n"
+    cars += '<main><section class="section"><div class="wrap"><div class="grid grid-3">\n' + "".join(car_card(car, "../") for car in cars_data) + f"</div>{service_links('../', 'Подберите услугу под маршрут')}</div></section></main>\n"
     cars += footer("../")
     write(ROOT / "cars/index.html", cars)
 
@@ -521,6 +1080,7 @@ def build():
 {specs_html}
         <p><strong>Стоимость:</strong> {e(price)}. Цена зависит от маршрута, времени аренды, подачи и формата поездки.</p>
         <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Забронировать в WhatsApp</a></p>
+{service_links('../../', 'Для каких задач подходит')}
       </div>
     </section></main>
 """
@@ -532,12 +1092,23 @@ def build():
         chunk = articles[(page - 1) * NEWS_PAGE_SIZE : page * NEWS_PAGE_SIZE]
         if page == 1:
             out, prefix, link_prefix, index_href, page_base = ROOT / "news/index.html", "../", "", "index.html", "page/"
-            title = "Новости"
+            title = "Новости об аренде транспорта"
         else:
             out, prefix, link_prefix, index_href, page_base = ROOT / "news/page" / str(page) / "index.html", "../../../", "../../", "../../index.html", "../../page/"
-            title = f"Новости: страница {page}"
+            title = f"Новости об аренде транспорта: страница {page}"
         cards = "".join(news_card(article, prefix, link_prefix) for article in chunk)
-        news = head(f"{title} | Minivan24", "Новости аренды минивэнов и микроавтобусов в Ташкенте.", prefix)
+        news_path = "news/" if page == 1 else f"news/page/{page}/"
+        news = head(
+            f"{title} | Minivan24",
+            "Новости аренды минивэнов и микроавтобусов в Ташкенте: трансферы, маршруты, цены, выбор транспорта и советы для поездок.",
+            prefix,
+            canonical=absolute_url(news_path),
+            image=DEFAULT_HERO,
+            structured_data=schema_list(
+                organization_schema(),
+                breadcrumb_schema([("Главная", absolute_url()), ("Новости", absolute_url("news/"))]),
+            ),
+        )
         news += header(prefix, "news")
         news += page_hero(title, "Полезные статьи об аренде минивэнов, трансферах, маршрутах по Ташкенту и поездках по Узбекистану.", prefix, DEFAULT_HERO, "Minivan24 news")
         news += f'<main><section class="section"><div class="wrap"><div class="grid grid-3">\n{cards}</div>{pagination(page, total_pages, index_href, page_base)}</div></section></main>\n'
@@ -562,6 +1133,7 @@ def build():
       <div class="narrow article-body">
         <a class="back-link" href="../index.html">← Вернуться к новостям</a>
 {body}
+{service_links('../../', 'Услуги по теме')}
         <h2>Нужен минивэн для поездки?</h2>
         <p>Напишите нам дату, маршрут, количество пассажиров и багаж. Мы подскажем подходящий автомобиль и формат аренды.</p>
         <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p>
@@ -571,20 +1143,37 @@ def build():
         page += footer("../../")
         write(ROOT / "news" / article["slug"] / "index.html", page)
 
-    contacts = head("Контакты | Minivan24", "Контакты Minivan24: аренда минивэнов и микроавтобусов в Ташкенте.", "../")
+    contacts = head(
+        "Контакты Minivan24 | Аренда минивэнов в Ташкенте",
+        "Контакты Minivan24: телефон, WhatsApp, Telegram, email и адрес для заказа минивэна, микроавтобуса или трансфера в Ташкенте.",
+        "../",
+        canonical=absolute_url("kontakty/"),
+        image=DEFAULT_HERO,
+        structured_data=schema_list(
+            organization_schema(),
+            breadcrumb_schema([("Главная", absolute_url()), ("Контакты", absolute_url("kontakty/"))]),
+        ),
+    )
     contacts += header("../", "contacts")
     contacts += page_hero("Контакты", "Свяжитесь с нами, чтобы подобрать минивэн, микроавтобус или трансфер под вашу поездку.", "../", DEFAULT_HERO, "Minivan24 contacts")
     contacts += f"""  <main><section class="section"><div class="wrap grid grid-2">
       <div class="panel"><h2>Связаться с нами</h2><p><strong>Телефон:</strong> <a href="{PHONE_HREF}">{PHONE}</a></p><p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p><p><strong>Адрес:</strong> {ADDRESS}</p><p><strong>Telegram:</strong> <a href="{TELEGRAM}">@minivanuzb</a></p><p><strong>WhatsApp:</strong> <a href="{WHATSAPP}" target="_blank" rel="noopener">отправить заявку</a></p></div>
       <form class="panel" action="{WHATSAPP}" target="_blank"><h2>Заявка на аренду</h2><label>Ваше имя<input name="name" placeholder="Имя"></label><label>Телефон<input name="phone" placeholder="+998"></label><label>Маршрут<textarea name="message" placeholder="Дата, маршрут, количество пассажиров"></textarea></label><button class="btn" type="submit">Отправить</button></form>
-    </div></section></main>
+    </div></section>
+    <section class="section soft"><div class="wrap"><span class="eyebrow">Зоны обслуживания</span><h2 class="section-title">Подача по Ташкенту и маршруты по Узбекистану</h2><div class="grid grid-4">
+      <article class="feature"><div class="icon">✓</div><h3>Аэропорт и вокзал</h3><p>Встреча гостей, багаж, трансфер до отеля, офиса или другого города.</p></article>
+      <article class="feature"><div class="icon">✓</div><h3>Городские поездки</h3><p>Деловые встречи, семейные маршруты, мероприятия и подача по адресу.</p></article>
+      <article class="feature"><div class="icon">✓</div><h3>Туры и экскурсии</h3><p>Ташкент, Чарвак, Самарканд, Бухара и другие направления по запросу.</p></article>
+      <article class="feature"><div class="icon">✓</div><h3>Группы и события</h3><p>Свадьбы, делегации, корпоративы, развоз гостей и поездки с багажом.</p></article>
+    </div>{service_links('../', 'Заказать услугу')}</div></section></main>
 """
     contacts += footer("../")
     write(ROOT / "kontakty/index.html", contacts)
 
-    write_sitemap(cars_data, articles)
+    write_sitemap(cars_data, articles, total_pages)
+    write_robots()
 
-    print(f"Generated clean HTML: {1 + 1 + len(cars_data) + total_pages + len(articles) + 1} pages")
+    print(f"Generated clean HTML: {1 + 1 + len(SERVICES) + 1 + len(cars_data) + total_pages + len(articles) + 1} pages")
 
 
 if __name__ == "__main__":
