@@ -1,4 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Booking toggle functionality
+  const bookingToggle = document.querySelector("[data-booking-toggle]");
+  const bookingPanel = document.querySelector(".booking-panel-hidden");
+  
+  if (bookingToggle && bookingPanel) {
+    bookingToggle.addEventListener("click", () => {
+      const isActive = bookingPanel.classList.contains("active");
+      bookingPanel.classList.toggle("active");
+      bookingToggle.setAttribute("aria-expanded", !isActive);
+    });
+
+    // Close form when clicking outside
+    document.addEventListener("click", (e) => {
+      const bookingSection = document.querySelector("[data-booking-section]");
+      if (bookingPanel.classList.contains("active") && 
+          !bookingSection.contains(e.target)) {
+        bookingPanel.classList.remove("active");
+        bookingToggle.setAttribute("aria-expanded", false);
+      }
+    });
+  }
+
+  // Gallery carousel
   document.querySelectorAll("[data-gallery-card]").forEach((card) => {
     const slides = Array.from(card.querySelectorAll(".car-gallery img"));
     const dots = Array.from(card.querySelectorAll(".car-dot"));
@@ -31,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Cars carousel
   document.querySelectorAll("[data-cars-carousel]").forEach((carousel) => {
     const track = carousel.querySelector(".cars-track");
     const prev = document.querySelector("[data-cars-prev]");
@@ -50,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // WhatsApp form submission
   document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       const data = new FormData(form);

@@ -50,7 +50,7 @@
     </div>
   </header>
     <main>
-    <section class="hero hero-sales" style="--hero-image: url('uploads/2024/11/mercedes-sprinter-hero.webp')">
+    <section class="hero hero-sales" style="--hero-image: url('uploads/2024/11/hero-bg-premium.png')">
       <div class="wrap hero-sales-grid">
         <div class="hero-copy">
           <span class="eyebrow">Minivan24 Tashkent</span>
@@ -73,9 +73,15 @@
       </div>
     </section>
 
-    <section class="booking" id="booking">
+    <section class="booking" id="booking" data-booking-section>
       <div class="wrap">
-        <form class="booking-panel" action="https://wa.me/998990084000" target="_blank" data-whatsapp-form>
+        <button class="booking-toggle-btn" data-booking-toggle aria-label="Открыть форму заявки">
+          <span>Рассчитать стоимость</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <form class="booking-panel booking-panel-hidden" action="https://wa.me/998990084000" target="_blank" data-whatsapp-form>
           <div class="booking-head">
             <div>
               <span class="eyebrow">Быстрый расчет</span>

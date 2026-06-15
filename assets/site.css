@@ -894,6 +894,201 @@ textarea { min-height: 130px; resize: vertical; }
 .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
 .footer-links a:hover { color: var(--white); }
 
+/* Enhanced Booking Toggle Styles */
+.booking-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 32px;
+  border: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #ff6b4d 0%, var(--accent) 100%);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(240, 90, 60, .26);
+  transition: all .3s var(--ease);
+  margin-bottom: 18px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.booking-toggle-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(240, 90, 60, .35);
+}
+
+.booking-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform .3s var(--ease);
+}
+
+.booking-toggle-btn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.booking-panel-hidden {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  transition: all .4s var(--ease), padding .4s var(--ease), border .4s var(--ease);
+  pointer-events: none;
+}
+
+.booking-panel-hidden.active {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 24px;
+  border: 1px solid rgba(227,231,239,.9);
+  box-shadow: var(--shadow);
+  pointer-events: auto;
+  margin-bottom: 18px;
+}
+
+/* Hero section enhancements */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+  animation: heroZoom 20s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hero::after {
+  background: linear-gradient(180deg, rgba(7,9,14,.7) 0%, rgba(7,9,14,.5) 54%, rgba(7,9,14,.75) 100%);
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.hero-copy {
+  animation: fadeInUp .8s var(--ease) .2s both;
+}
+
+.hero-deal {
+  animation: fadeInRight .8s var(--ease) .4s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-actions {
+  animation: fadeInUp .8s var(--ease) .6s both;
+}
+
+/* Card hover animations */
+.card {
+  transition: all .3s var(--ease);
+  animation: slideUp .6s var(--ease);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(13, 18, 32, .15);
+}
+
+/* Feature cards animations */
+.feature {
+  animation: slideUp .6s var(--ease);
+}
+
+.feature:nth-child(2) { animation-delay: .1s; }
+.feature:nth-child(3) { animation-delay: .2s; }
+.feature:nth-child(4) { animation-delay: .3s; }
+
+.feature:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--accent-dark);
+}
+
+.feature .icon {
+  transition: all .3s var(--ease);
+}
+
+/* Trust strip animation */
+.trust-strip article {
+  animation: slideUp .6s var(--ease);
+}
+
+.trust-strip article:nth-child(2) { animation-delay: .1s; }
+.trust-strip article:nth-child(3) { animation-delay: .2s; }
+.trust-strip article:nth-child(4) { animation-delay: .3s; }
+
+/* Smooth button transitions */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .2);
+  transform: translate(-50%, -50%);
+  transition: width .6s, height .6s;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
 @media (max-width: 1024px) {
   .menu { display: none; }
   .hero h1 { font-size: 44px; }
