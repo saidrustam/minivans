@@ -39,15 +39,32 @@
   <header class="header">
     <div class="wrap nav">
       <a class="logo" href="../../index.html" aria-label="Minivan24"><img src="../../uploads/2024/11/minivan24-logo.png" alt="Minivan24"></a>
-      <nav class="menu" aria-label="Главное меню">
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="menu" id="site-menu" aria-label="Главное меню" data-menu>
         <a href="../../index.html">Главная</a>
         <a href="../../services/index.html" class="active">Услуги</a>
         <a href="../../cars/index.html">Автопарк</a>
         <a href="../../news/index.html">Новости</a>
         <a href="../../kontakty/index.html">Контакты</a>
+        <div class="menu-contact">
+          <span class="menu-contact-label">Контакты</span>
+          <span class="menu-contact-address">Ташкент, улица Амир Темур 99а</span>
+          <a class="menu-contact-phone" href="tel:+998990084000">+998 99 008 4000</a>
+          <div class="menu-contact-links">
+            <a href="https://t.me/minivanuzb">Telegram</a>
+            <a href="https://www.instagram.com/minivanuz/profilecard/?igsh=YmN3bm9vbjE0ajNq" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/998990084000" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <a class="menu-cta" href="https://wa.me/998990084000" target="_blank" rel="noopener">Связаться</a>
       </nav>
-      <div class="nav-actions"><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Забронировать</a></div>
+      <div class="nav-actions"><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Связаться</a></div>
     </div>
+    <div class="menu-backdrop" data-menu-backdrop></div>
   </header>
   <section class="page-hero" style="--hero-image: url('../../uploads/2026/06/service-airport-transfer-tashkent.webp')">
     <div class="wrap">
@@ -60,9 +77,9 @@
     <section class="section">
       <div class="wrap grid grid-2 align-start">
         <div>
-          <span class="eyebrow">Семантика запроса</span>
-          <h2 class="section-title compact-title">Когда подходит эта услуга</h2>
-          <p class="lead">Посадочная страница закрывает коммерческий интент: человеку нужно быстро понять, подойдёт ли формат, сколько факторов влияет на цену и как оформить заявку без лишней переписки.</p>
+          <span class="eyebrow">Кому подходит</span>
+          <h2 class="section-title compact-title">Когда эта услуга уместна</h2>
+          <p class="lead">Поможем быстро понять формат поездки: какой автомобиль нужен, что влияет на цену и какие детали лучше согласовать заранее.</p>
           <ul class="check-list"><li>прилёт семьи</li><li>встреча делегации</li><li>туристическая группа</li><li>трансфер в другой город</li></ul>
         </div>
         <div class="service-detail-side">
@@ -72,14 +89,14 @@
           <div class="panel order-panel">
             <h2>Что прислать для расчёта</h2>
             <p>Дата, время подачи, маршрут, количество пассажиров, багаж, детские кресла и желаемый класс автомобиля.</p>
-            <a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Получить расчёт в WhatsApp</a>
+            <a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Описать поездку</a>
           </div>
         </div>
       </div>
     </section>
     <section class="section soft">
       <div class="wrap">
-        <span class="eyebrow">Коммерческие факторы</span>
+        <span class="eyebrow">Условия</span>
         <h2 class="section-title">Что важно перед бронированием</h2>
         <div class="grid grid-4"><article class="feature"><div class="icon">✓</div><h3>Встреча рейса</h3><p>Учитываем время прилёта, багаж и возможное ожидание.</p></article><article class="feature"><div class="icon">✓</div><h3>Место для чемоданов</h3><p>Подбираем класс авто с учётом пассажиров и багажа.</p></article><article class="feature"><div class="icon">✓</div><h3>Подача 24/7</h3><p>Можно заказать ранний, ночной или срочный трансфер.</p></article><article class="feature"><div class="icon">✓</div><h3>Дальше Ташкента</h3><p>По запросу едем в Самарканд, Чарвак и другие направления.</p></article></div>
       </div>
@@ -168,7 +185,7 @@
         <div class="panel">
           <h2>Заявка без лишних шагов</h2>
           <p>Мы не просим заполнять длинную форму: достаточно написать маршрут и дату. Менеджер уточнит детали и предложит подходящий автомобиль.</p>
-          <p><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Написать в WhatsApp</a></p>
+          <p><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Описать поездку</a></p>
         </div>
       </div>
     </section>

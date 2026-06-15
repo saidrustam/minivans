@@ -1,23 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Booking toggle functionality
-  const bookingToggle = document.querySelector("[data-booking-toggle]");
-  const bookingPanel = document.querySelector(".booking-panel-hidden");
-  
-  if (bookingToggle && bookingPanel) {
-    bookingToggle.addEventListener("click", () => {
-      const isActive = bookingPanel.classList.contains("active");
-      bookingPanel.classList.toggle("active");
-      bookingToggle.setAttribute("aria-expanded", !isActive);
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menu = document.querySelector("[data-menu]");
+  const menuBackdrop = document.querySelector("[data-menu-backdrop]");
+
+  if (menuToggle && menu) {
+    const closeMenu = () => {
+      menu.classList.remove("is-open");
+      menuBackdrop?.classList.remove("is-open");
+      menuToggle.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Открыть меню");
+      document.body.classList.remove("menu-open");
+    };
+
+    const openMenu = () => {
+      menu.classList.add("is-open");
+      menuBackdrop?.classList.add("is-open");
+      menuToggle.classList.add("is-open");
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Закрыть меню");
+      document.body.classList.add("menu-open");
+    };
+
+    menuToggle.addEventListener("click", () => {
+      if (menu.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    // Close form when clicking outside
-    document.addEventListener("click", (e) => {
-      const bookingSection = document.querySelector("[data-booking-section]");
-      if (bookingPanel.classList.contains("active") && 
-          !bookingSection.contains(e.target)) {
-        bookingPanel.classList.remove("active");
-        bookingToggle.setAttribute("aria-expanded", false);
-      }
+    menu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) closeMenu();
+    });
+
+    menuBackdrop?.addEventListener("click", closeMenu);
+
+    document.addEventListener("click", (event) => {
+      const clickedMenu = event.target.closest("[data-menu]");
+      const clickedToggle = event.target.closest("[data-menu-toggle]");
+      if (!clickedMenu && !clickedToggle && menu.classList.contains("is-open")) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1024) closeMenu();
     });
   }
 

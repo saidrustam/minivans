@@ -39,26 +39,44 @@
   <header class="header">
     <div class="wrap nav">
       <a class="logo" href="index.html" aria-label="Minivan24"><img src="uploads/2024/11/minivan24-logo.png" alt="Minivan24"></a>
-      <nav class="menu" aria-label="Главное меню">
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="menu" id="site-menu" aria-label="Главное меню" data-menu>
         <a href="index.html" class="active">Главная</a>
         <a href="services/index.html">Услуги</a>
         <a href="cars/index.html">Автопарк</a>
         <a href="news/index.html">Новости</a>
         <a href="kontakty/index.html">Контакты</a>
+        <div class="menu-contact">
+          <span class="menu-contact-label">Контакты</span>
+          <span class="menu-contact-address">Ташкент, улица Амир Темур 99а</span>
+          <a class="menu-contact-phone" href="tel:+998990084000">+998 99 008 4000</a>
+          <div class="menu-contact-links">
+            <a href="https://t.me/minivanuzb">Telegram</a>
+            <a href="https://www.instagram.com/minivanuz/profilecard/?igsh=YmN3bm9vbjE0ajNq" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/998990084000" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <a class="menu-cta" href="https://wa.me/998990084000" target="_blank" rel="noopener">Связаться</a>
       </nav>
-      <div class="nav-actions"><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Забронировать</a></div>
+      <div class="nav-actions"><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Связаться</a></div>
     </div>
+    <div class="menu-backdrop" data-menu-backdrop></div>
   </header>
     <main>
-    <section class="hero hero-sales" style="--hero-image: url('uploads/2024/11/hero-bg-premium.png')">
+    <section class="hero hero-sales" style="--hero-image: url('uploads/2024/11/mercedes-sprinter-hero.webp')">
       <div class="wrap hero-sales-grid">
         <div class="hero-copy">
           <span class="eyebrow">Minivan24 Tashkent</span>
           <h1>Аренда минивэнов и микроавтобусов в Ташкенте с водителем</h1>
           <p>KIA Carnival, Hyundai Starex, Mercedes-Benz Sprinter и трансферы для семьи, гостей, свадеб, аэропорта и поездок по Узбекистану. Заранее уточняем маршрут, багаж и цену.</p>
           <div class="hero-actions">
-            <a class="btn" href="#booking">Рассчитать стоимость</a>
-            <a class="btn ghost" href="https://wa.me/998990084000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn desktop-booking-link" href="#booking">Подобрать автомобиль</a>
+            <a class="btn mobile-contact-link" href="https://wa.me/998990084000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn ghost" href="cars/index.html">Смотреть автопарк</a>
           </div>
         </div>
         <aside class="hero-deal" aria-label="Популярный автомобиль">
@@ -73,19 +91,19 @@
       </div>
     </section>
 
-    <section class="booking" id="booking" data-booking-section>
+    <section class="booking" id="booking">
       <div class="wrap">
-        <button class="booking-toggle-btn" data-booking-toggle aria-label="Открыть форму заявки">
-          <span>Рассчитать стоимость</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <form class="booking-panel booking-panel-hidden" action="https://wa.me/998990084000" target="_blank" data-whatsapp-form>
+        <div class="mobile-booking-cta">
+          <span class="eyebrow">Быстрая заявка</span>
+          <h2>Отправьте маршрут в WhatsApp</h2>
+          <p>Дата, адрес подачи, пассажиры и багаж — этого достаточно для первого ответа.</p>
+          <a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Отправить заявку</a>
+        </div>
+        <form class="booking-panel" action="https://wa.me/998990084000" target="_blank" data-whatsapp-form>
           <div class="booking-head">
             <div>
-              <span class="eyebrow">Быстрый расчет</span>
-              <h2>Оставьте детали поездки</h2>
+              <span class="eyebrow">Заявка за минуту</span>
+              <h2>Маршрут и детали</h2>
             </div>
             <p>Менеджер получит заявку в WhatsApp и уточнит цену, автомобиль и время подачи.</p>
           </div>
@@ -101,7 +119,7 @@
             <label>Формат<select name="driver"><option>С водителем</option><option>Без водителя</option><option>Нужно уточнить</option></select></label>
             <label class="booking-wide">Комментарий<textarea name="comment" placeholder="Детские кресла, ожидание, несколько адресов, ночная подача"></textarea></label>
             <label class="form-hp">Сайт<input name="website" tabindex="-1" autocomplete="off"></label>
-            <button class="btn booking-submit" type="submit">Рассчитать стоимость</button>
+            <button class="btn booking-submit" type="submit">Отправить заявку</button>
           </div>
         </form>
       </div>
@@ -275,11 +293,11 @@
           </details>
           <details class="faq-item">
             <summary>Сколько стоит поездка в Самарканд?</summary>
-            <p>Цена зависит от даты, маршрута, ожидания, количества пассажиров и класса авто. Отправьте детали, и мы рассчитаем стоимость.</p>
+            <p>Цена зависит от даты, маршрута, ожидания, количества пассажиров и класса авто. Отправьте детали, и мы заранее объясним итоговую цену.</p>
           </details>
 
         </div></div>
-        <div class="panel"><h2>Нужен точный расчет?</h2><p>Отправьте маршрут, дату, пассажиров и багаж. Мы ответим в WhatsApp и заранее объясним, что входит в цену.</p><p><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Написать в WhatsApp</a></p></div>
+        <div class="panel"><h2>Уточнить маршрут</h2><p>Отправьте маршрут, дату, пассажиров и багаж. Мы ответим в WhatsApp и заранее объясним, что входит в цену.</p><p><a class="btn" href="https://wa.me/998990084000" target="_blank" rel="noopener">Описать поездку</a></p></div>
       </div>
     </section>
   </main>

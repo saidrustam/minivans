@@ -449,15 +449,32 @@ def header(prefix, active):
   <header class="header">
     <div class="wrap nav">
       <a class="logo" href="{e(rel(prefix, 'index.html'))}" aria-label="Minivan24"><img src="{e(rel(prefix, LOGO))}" alt="Minivan24"></a>
-      <nav class="menu" aria-label="Главное меню">
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="menu" id="site-menu" aria-label="Главное меню" data-menu>
         <a href="{e(rel(prefix, 'index.html'))}"{cls('home')}>Главная</a>
         <a href="{e(rel(prefix, 'services/index.html'))}"{cls('services')}>Услуги</a>
         <a href="{e(rel(prefix, 'cars/index.html'))}"{cls('cars')}>Автопарк</a>
         <a href="{e(rel(prefix, 'news/index.html'))}"{cls('news')}>Новости</a>
         <a href="{e(rel(prefix, 'kontakty/index.html'))}"{cls('contacts')}>Контакты</a>
+        <div class="menu-contact">
+          <span class="menu-contact-label">Контакты</span>
+          <span class="menu-contact-address">{ADDRESS}</span>
+          <a class="menu-contact-phone" href="{PHONE_HREF}">{PHONE}</a>
+          <div class="menu-contact-links">
+            <a href="{TELEGRAM}">Telegram</a>
+            <a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram</a>
+            <a href="{WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <a class="menu-cta" href="{WHATSAPP}" target="_blank" rel="noopener">Связаться</a>
       </nav>
-      <div class="nav-actions"><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Забронировать</a></div>
+      <div class="nav-actions"><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Связаться</a></div>
     </div>
+    <div class="menu-backdrop" data-menu-backdrop></div>
   </header>
 """
 
@@ -880,9 +897,9 @@ def service_page(service, cars_data, articles):
     <section class="section">
       <div class="wrap grid grid-2 align-start">
         <div>
-          <span class="eyebrow">Семантика запроса</span>
-          <h2 class="section-title compact-title">Когда подходит эта услуга</h2>
-          <p class="lead">Посадочная страница закрывает коммерческий интент: человеку нужно быстро понять, подойдёт ли формат, сколько факторов влияет на цену и как оформить заявку без лишней переписки.</p>
+          <span class="eyebrow">Кому подходит</span>
+          <h2 class="section-title compact-title">Когда эта услуга уместна</h2>
+          <p class="lead">Поможем быстро понять формат поездки: какой автомобиль нужен, что влияет на цену и какие детали лучше согласовать заранее.</p>
           <ul class="check-list">{audience}</ul>
         </div>
         <div class="service-detail-side">
@@ -892,14 +909,14 @@ def service_page(service, cars_data, articles):
           <div class="panel order-panel">
             <h2>Что прислать для расчёта</h2>
             <p>Дата, время подачи, маршрут, количество пассажиров, багаж, детские кресла и желаемый класс автомобиля.</p>
-            <a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Получить расчёт в WhatsApp</a>
+            <a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Описать поездку</a>
           </div>
         </div>
       </div>
     </section>
     <section class="section soft">
       <div class="wrap">
-        <span class="eyebrow">Коммерческие факторы</span>
+        <span class="eyebrow">Условия</span>
         <h2 class="section-title">Что важно перед бронированием</h2>
         <div class="grid grid-4">{benefits}</div>
       </div>
@@ -936,7 +953,7 @@ def service_page(service, cars_data, articles):
         <div class="panel">
           <h2>Заявка без лишних шагов</h2>
           <p>Мы не просим заполнять длинную форму: достаточно написать маршрут и дату. Менеджер уточнит детали и предложит подходящий автомобиль.</p>
-          <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p>
+          <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Описать поездку</a></p>
         </div>
       </div>
     </section>
@@ -987,13 +1004,18 @@ def build():
     home += f"""  <main>
     <section class="hero" style="--hero-image: url('{DEFAULT_HERO}')">
       <div class="wrap">
-        <span class="eyebrow">Minivan24 rent service</span>
+        <span class="eyebrow">Minivan24 Tashkent</span>
         <h1>Аренда минивэнов в Ташкенте для семьи, гостей и поездок</h1>
         <p>Комфортные минивэны и микроавтобусы с водителем и без водителя. Подберём автомобиль под трансфер, экскурсию, свадьбу, деловую поездку или путешествие по Узбекистану.</p>
-        <div class="hero-actions"><a class="btn" href="#booking">Подобрать авто</a><a class="btn ghost" href="cars/index.html">Смотреть автопарк</a></div>
+        <div class="hero-actions"><a class="btn desktop-booking-link" href="#booking">Подобрать авто</a><a class="btn mobile-contact-link" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a><a class="btn ghost" href="cars/index.html">Смотреть автопарк</a></div>
       </div>
     </section>
-    <section class="booking" id="booking"><div class="wrap"><form class="booking-panel" action="{WHATSAPP}" target="_blank">
+    <section class="booking" id="booking"><div class="wrap"><div class="mobile-booking-cta">
+      <span class="eyebrow">Быстрая заявка</span>
+      <h2>Отправьте маршрут в WhatsApp</h2>
+      <p>Дата, адрес подачи, пассажиры и багаж — этого достаточно для первого ответа.</p>
+      <a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Отправить заявку</a>
+    </div><form class="booking-panel" action="{WHATSAPP}" target="_blank">
       <h2>Быстрая заявка на аренду</h2>
       <div class="booking-grid">
         <label>Место подачи<select name="pickup"><option>Ташкент, аэропорт</option><option>Ташкент, вокзал</option><option>Ташкент, отель</option><option>По Узбекистану</option></select></label>
@@ -1001,10 +1023,10 @@ def build():
         <label>Дата начала<input type="date" name="start"></label><label>Время<input type="time" name="time"></label><button class="btn" type="submit">Отправить</button>
       </div>
     </form></div></section>
-    <section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Услуги</span><h2 class="section-title">Посадочные страницы под реальные задачи</h2></div><a class="btn ghost" href="services/index.html">Все услуги</a></div><div class="grid grid-3">{home_service_cards}</div></div></section>
+    <section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Услуги</span><h2 class="section-title">Популярные задачи поездки</h2></div><a class="btn ghost" href="services/index.html">Все услуги</a></div><div class="grid grid-3">{home_service_cards}</div></div></section>
     <section class="section"><div class="wrap"><span class="eyebrow">Почему выбирают нас</span><h2 class="section-title">Сервис аренды, который удобно планировать заранее</h2><p class="lead">Мы делаем поездку предсказуемой: помогаем выбрать формат, согласовать маршрут, время подачи и подходящий автомобиль под количество пассажиров и багажа.</p><div class="grid grid-4" style="margin-top:32px">{feature_html}</div></div></section>
     <section class="section soft"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Автопарк</span><h2 class="section-title">Лучшие предложения</h2></div><div class="carousel-actions"><button class="slider-btn" type="button" data-cars-prev aria-label="Предыдущие автомобили">&lsaquo;</button><button class="slider-btn" type="button" data-cars-next aria-label="Следующие автомобили">&rsaquo;</button></div></div><div class="cars-carousel" data-cars-carousel><div class="cars-track">{home_cards}</div></div></div></section>
-    <section class="section"><div class="wrap grid grid-2 align-start"><div><span class="eyebrow">FAQ</span><h2 class="section-title compact-title">Частые вопросы перед заказом</h2><div class="faq-list">{faq_html(home_faq)}</div></div><div class="panel"><h2>Нужен точный расчёт?</h2><p>Пришлите дату, маршрут, количество пассажиров и багаж. Мы подберём минивэн или микроавтобус и заранее объясним, из чего складывается цена.</p><p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p></div></div></section>
+    <section class="section"><div class="wrap grid grid-2 align-start"><div><span class="eyebrow">FAQ</span><h2 class="section-title compact-title">Частые вопросы перед заказом</h2><div class="faq-list">{faq_html(home_faq)}</div></div><div class="panel"><h2>Уточнить маршрут</h2><p>Пришлите дату, маршрут, количество пассажиров и багаж. Мы подберём минивэн или микроавтобус и заранее объясним, из чего складывается цена.</p><p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Описать поездку</a></p></div></div></section>
   </main>
 """
     home += footer("")
@@ -1027,7 +1049,7 @@ def build():
     services += f"""  <main>
     <section class="section">
       <div class="wrap">
-        <div class="section-head"><div><span class="eyebrow">Семантические кластеры</span><h2 class="section-title">Выберите задачу поездки</h2></div></div>
+        <div class="section-head"><div><span class="eyebrow">Услуги</span><h2 class="section-title">Выберите задачу поездки</h2></div></div>
         <div class="grid grid-3">{services_cards}</div>
       </div>
     </section>
@@ -1084,7 +1106,7 @@ def build():
         <p>Автомобиль подходит для поездок по Ташкенту, трансферов из аэропорта, экскурсий, семейных маршрутов и деловых встреч. Уточните дату, маршрут, количество пассажиров и багаж, чтобы мы предложили точный формат аренды.</p>
 {specs_html}
         <p><strong>Стоимость:</strong> {e(price)}. Цена зависит от маршрута, времени аренды, подачи и формата поездки.</p>
-        <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Забронировать в WhatsApp</a></p>
+        <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Уточнить наличие</a></p>
 {service_links('../../', 'Для каких задач подходит')}
       </div>
     </section></main>
@@ -1141,7 +1163,7 @@ def build():
 {service_links('../../', 'Услуги по теме')}
         <h2>Нужен минивэн для поездки?</h2>
         <p>Напишите нам дату, маршрут, количество пассажиров и багаж. Мы подскажем подходящий автомобиль и формат аренды.</p>
-        <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p>
+        <p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Описать поездку</a></p>
       </div>
     </section></main>
 """
@@ -1214,8 +1236,9 @@ def enhance_home():
           <h1>Аренда минивэнов и микроавтобусов в Ташкенте с водителем</h1>
           <p>KIA Carnival, Hyundai Starex, Mercedes-Benz Sprinter и трансферы для семьи, гостей, свадеб, аэропорта и поездок по Узбекистану. Заранее уточняем маршрут, багаж и цену.</p>
           <div class="hero-actions">
-            <a class="btn" href="#booking">Рассчитать стоимость</a>
-            <a class="btn ghost" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn desktop-booking-link" href="#booking">Подобрать автомобиль</a>
+            <a class="btn mobile-contact-link" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn ghost" href="cars/index.html">Смотреть автопарк</a>
           </div>
         </div>
         <aside class="hero-deal" aria-label="Популярный автомобиль">
@@ -1232,11 +1255,17 @@ def enhance_home():
 
     <section class="booking" id="booking">
       <div class="wrap">
+        <div class="mobile-booking-cta">
+          <span class="eyebrow">Быстрая заявка</span>
+          <h2>Отправьте маршрут в WhatsApp</h2>
+          <p>Дата, адрес подачи, пассажиры и багаж — этого достаточно для первого ответа.</p>
+          <a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Отправить заявку</a>
+        </div>
         <form class="booking-panel" action="{WHATSAPP}" target="_blank" data-whatsapp-form>
           <div class="booking-head">
             <div>
-              <span class="eyebrow">Быстрый расчет</span>
-              <h2>Оставьте детали поездки</h2>
+              <span class="eyebrow">Заявка за минуту</span>
+              <h2>Маршрут и детали</h2>
             </div>
             <p>Менеджер получит заявку в WhatsApp и уточнит цену, автомобиль и время подачи.</p>
           </div>
@@ -1252,7 +1281,7 @@ def enhance_home():
             <label>Формат<select name="driver"><option>С водителем</option><option>Без водителя</option><option>Нужно уточнить</option></select></label>
             <label class="booking-wide">Комментарий<textarea name="comment" placeholder="Детские кресла, ожидание, несколько адресов, ночная подача"></textarea></label>
             <label class="form-hp">Сайт<input name="website" tabindex="-1" autocomplete="off"></label>
-            <button class="btn booking-submit" type="submit">Рассчитать стоимость</button>
+            <button class="btn booking-submit" type="submit">Отправить заявку</button>
           </div>
         </form>
       </div>
@@ -1320,10 +1349,10 @@ def enhance_home():
             ("Можно ли оплатить перечислением?", "Да, возможна оплата наличными, картой или перечислением для организаций."),
             ("Работаете ночью?", "Да, подача в аэропорт и ночные поездки возможны 24/7 по предварительному согласованию."),
             ("Можно ли заказать микроавтобус на свадьбу?", "Да. Подберем минивэн или Sprinter под количество гостей, адреса и время ожидания."),
-            ("Сколько стоит поездка в Самарканд?", "Цена зависит от даты, маршрута, ожидания, количества пассажиров и класса авто. Отправьте детали, и мы рассчитаем стоимость.")
+            ("Сколько стоит поездка в Самарканд?", "Цена зависит от даты, маршрута, ожидания, количества пассажиров и класса авто. Отправьте детали, и мы заранее объясним итоговую цену.")
           ])}
         </div></div>
-        <div class="panel"><h2>Нужен точный расчет?</h2><p>Отправьте маршрут, дату, пассажиров и багаж. Мы ответим в WhatsApp и заранее объясним, что входит в цену.</p><p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Написать в WhatsApp</a></p></div>
+        <div class="panel"><h2>Уточнить маршрут</h2><p>Отправьте маршрут, дату, пассажиров и багаж. Мы ответим в WhatsApp и заранее объясним, что входит в цену.</p><p><a class="btn" href="{WHATSAPP}" target="_blank" rel="noopener">Описать поездку</a></p></div>
       </div>
     </section>
   </main>
