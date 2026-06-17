@@ -18,6 +18,7 @@ INSTAGRAM = "https://www.instagram.com/minivanuz/profilecard/?igsh=YmN3bm9vbjE0a
 LOGO = "uploads/2024/11/minivan24-logo.png"
 FAVICON = "uploads/2024/11/minivan24-favicon.png"
 DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
+CARS_HERO = "uploads/2026/06/cars-hero-fleet-2k.webp"
 NEWS_PAGE_SIZE = 12
 TODAY = date.today().isoformat()
 
@@ -1066,14 +1067,14 @@ def build():
         "Минивэны и микроавтобусы в аренду в Ташкенте: KIA Carnival, Hyundai Starex, Hyundai H-1, Mercedes-Benz Sprinter, Toyota Sienna.",
         "../",
         canonical=absolute_url("cars/"),
-        image=cars_data[0]["image"],
+        image=CARS_HERO,
         structured_data=schema_list(
             organization_schema(),
             breadcrumb_schema([("Главная", absolute_url()), ("Автопарк", absolute_url("cars/"))]),
         ),
     )
     cars += header("../", "cars")
-    cars += page_hero("Автопарк", "Выберите минивэн или микроавтобус под трансфер, экскурсию, семейную поездку, свадьбу или маршрут по Узбекистану.", "../", cars_data[0]["image"], "Minivan24 cars")
+    cars += page_hero("Автопарк", "Выберите минивэн или микроавтобус под трансфер, экскурсию, семейную поездку, свадьбу или маршрут по Узбекистану.", "../", CARS_HERO, "Minivan24 cars")
     cars += '<main><section class="section"><div class="wrap"><div class="grid grid-3">\n' + "".join(car_carousel_card(car, "../") for car in cars_data) + f"</div>{service_links('../', 'Подберите услугу под маршрут')}</div></section></main>\n"
     cars += footer("../")
     write(ROOT / "cars/index.html", cars)
