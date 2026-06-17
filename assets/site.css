@@ -650,13 +650,13 @@ textarea {
   border-right: 2px solid currentColor;
 }
 
-.slider-btn:first-child::before,
+.slider-btn[data-cars-prev]::before,
 .media-btn.prev::before {
   transform: rotate(-135deg);
   margin-left: 3px;
 }
 
-.slider-btn:last-child::before,
+.slider-btn[data-cars-next]::before,
 .media-btn.next::before {
   transform: rotate(45deg);
   margin-right: 3px;
