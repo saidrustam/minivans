@@ -922,6 +922,14 @@ textarea {
   box-shadow: none;
 }
 
+.news-list .price strong {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .price-details {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
