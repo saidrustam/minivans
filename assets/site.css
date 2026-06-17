@@ -1096,7 +1096,7 @@ textarea {
 }
 
 .service-card .service-tags {
-  margin: auto 0 0;
+  margin: auto 0 14px;
 }
 
 .service-tags span,
