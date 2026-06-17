@@ -20,6 +20,11 @@ FAVICON = "uploads/2024/11/minivan24-favicon.png"
 DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
 CARS_HERO = "uploads/2026/06/cars-hero-fleet-2k.webp"
 SERVICES_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
+HOME_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
+HOME_FEATURED_CAR_IMAGE = "uploads/2026/06/home-kia-carnival-feature-2k.webp"
+HOME_SERVICE_MINIVAN_IMAGE = "uploads/2026/06/home-service-minivan-tashkent-2k.webp"
+HOME_SERVICE_AIRPORT_IMAGE = "uploads/2026/06/home-service-airport-transfer-2k.webp"
+HOME_SERVICE_WEDDING_IMAGE = "uploads/2026/06/home-service-wedding-sprinter-2k.webp"
 NEWS_PAGE_SIZE = 12
 TODAY = date.today().isoformat()
 
@@ -634,8 +639,52 @@ HOME_CAR_TITLES = {
 }
 
 
+HOME_CAR_GALLERIES = {
+    "kia-carnival": [
+        "uploads/2026/06/home-kia-carnival-photo-01-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-02-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-03-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-06-2k.webp",
+    ],
+    "kia-carnival-2": [
+        "uploads/2026/06/home-kia-carnival-photo-02-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-04-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-05-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-07-2k.webp",
+    ],
+    "kia-carnival-3": [
+        "uploads/2026/06/home-kia-carnival-photo-03-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-08-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-09-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-10-2k.webp",
+    ],
+    "kia-carnival-4": [
+        "uploads/2026/06/home-kia-carnival-photo-04-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-01-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-05-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-06-2k.webp",
+    ],
+    "kia-carnival-5": [
+        "uploads/2026/06/home-kia-carnival-photo-05-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-07-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-08-2k.webp",
+        "uploads/2026/06/home-kia-carnival-photo-10-2k.webp",
+    ],
+    "hyundai-starex": [
+        "uploads/2026/06/home-hyundai-starex-photo-01-2k.webp",
+        "uploads/2026/06/home-hyundai-starex-photo-02-2k.webp",
+        "uploads/2026/06/home-hyundai-starex-photo-03-2k.webp",
+        "uploads/2026/06/home-hyundai-starex-photo-04-2k.webp",
+    ],
+}
+
+
 def home_car_card(car):
     display_car = {**car, "title": HOME_CAR_TITLES.get(car["slug"], car["title"])}
+    gallery = HOME_CAR_GALLERIES.get(car["slug"])
+    if gallery:
+        display_car["gallery"] = gallery
+        display_car["image"] = gallery[0]
     return car_carousel_card(display_car, "", "cars/")
 
 
@@ -1013,7 +1062,7 @@ def build():
         "Аренда минивэнов и микроавтобусов в Ташкенте с водителем и без: трансферы, свадьбы, экскурсии, поездки по Узбекистану, заявка в WhatsApp.",
         "",
         canonical=absolute_url(),
-        image=SERVICES_HERO,
+        image=HOME_HERO,
         structured_data=schema_list(organization_schema(), website_schema(), faq_schema(home_faq)),
     )
     home += header("", "home")
@@ -1245,7 +1294,7 @@ def enhance_home():
     home_cars = "".join(home_car_card(car) for car in load_cars()[:6])
 
     home_main = f"""  <main>
-    <section class="hero hero-sales" style="--hero-image: url('{DEFAULT_HERO}')">
+    <section class="hero hero-sales" style="--hero-image: url('{HOME_HERO}')">
       <div class="wrap hero-sales-grid">
         <div class="hero-copy">
           <span class="eyebrow">Minivan24 Tashkent</span>
@@ -1258,7 +1307,7 @@ def enhance_home():
           </div>
         </div>
         <aside class="hero-deal" aria-label="Популярный автомобиль">
-          <img src="uploads/2024/11/kia-carnival-photo-01.webp" alt="KIA Carnival для аренды в Ташкенте">
+          <img src="{HOME_FEATURED_CAR_IMAGE}" alt="KIA Carnival для аренды в Ташкенте">
           <div class="hero-deal-body">
             <span class="eyebrow">Популярный выбор</span>
             <h2>KIA Carnival</h2>
@@ -1307,9 +1356,9 @@ def enhance_home():
       <div class="wrap">
         <div class="section-head"><div><span class="eyebrow">Услуги</span><h2 class="section-title">Популярные услуги аренды</h2></div><a class="btn ghost" href="services/index.html">Все услуги</a></div>
         <div class="grid grid-3">
-          <article class="card service-card"><a class="card-media" href="services/arenda-minivena-v-tashkente/index.html"><img src="uploads/2026/06/service-minivan-tashkent-city.webp" alt="Аренда минивэна в Ташкенте" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/arenda-minivena-v-tashkente/index.html">Минивэн для семьи и гостей</a></h2><p>Для аэропорта, города, отеля, экскурсий и поездок с багажом.</p><div class="service-tags"><span>7-8 мест</span><span>KIA Carnival</span><span>багаж</span></div></div></article>
-          <article class="card service-card"><a class="card-media" href="services/transfer-aeroport-tashkent/index.html"><img src="uploads/2026/06/service-airport-transfer-tashkent.webp" alt="Трансфер аэропорт Ташкент" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/transfer-aeroport-tashkent/index.html">Трансфер аэропорт 24/7</a></h2><p>Встреча рейса, помощь с багажом и подача минивэна ко времени.</p><div class="service-tags"><span>рейс</span><span>отель</span><span>ночью</span></div></div></article>
-          <article class="card service-card"><a class="card-media" href="services/mikroavtobus-na-svadbu/index.html"><img src="uploads/2026/06/service-wedding-premium-sprinter-bukhara.webp" alt="Микроавтобус на свадьбу" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/mikroavtobus-na-svadbu/index.html">Свадьбы и группы</a></h2><p>Развоз гостей, несколько адресов, ожидание и комфортный салон.</p><div class="service-tags"><span>гости</span><span>Sprinter</span><span>маршрут</span></div></div></article>
+          <article class="card service-card"><a class="card-media" href="services/arenda-minivena-v-tashkente/index.html"><img src="{HOME_SERVICE_MINIVAN_IMAGE}" alt="Аренда минивэна в Ташкенте" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/arenda-minivena-v-tashkente/index.html">Минивэн для семьи и гостей</a></h2><p>Для аэропорта, города, отеля, экскурсий и поездок с багажом.</p><div class="service-tags"><span>7-8 мест</span><span>KIA Carnival</span><span>багаж</span></div></div></article>
+          <article class="card service-card"><a class="card-media" href="services/transfer-aeroport-tashkent/index.html"><img src="{HOME_SERVICE_AIRPORT_IMAGE}" alt="Трансфер аэропорт Ташкент" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/transfer-aeroport-tashkent/index.html">Трансфер аэропорт 24/7</a></h2><p>Встреча рейса, помощь с багажом и подача минивэна ко времени.</p><div class="service-tags"><span>рейс</span><span>отель</span><span>ночью</span></div></div></article>
+          <article class="card service-card"><a class="card-media" href="services/mikroavtobus-na-svadbu/index.html"><img src="{HOME_SERVICE_WEDDING_IMAGE}" alt="Микроавтобус на свадьбу" loading="lazy"></a><div class="card-body"><h2><a class="card-title" href="services/mikroavtobus-na-svadbu/index.html">Свадьбы и группы</a></h2><p>Развоз гостей, несколько адресов, ожидание и комфортный салон.</p><div class="service-tags"><span>гости</span><span>Sprinter</span><span>маршрут</span></div></div></article>
         </div>
       </div>
     </section>
