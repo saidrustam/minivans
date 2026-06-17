@@ -25,6 +25,7 @@ HOME_FEATURED_CAR_IMAGE = "uploads/2026/06/home-kia-carnival-feature-2k.webp"
 HOME_SERVICE_MINIVAN_IMAGE = "uploads/2026/06/home-service-minivan-tashkent-2k.webp"
 HOME_SERVICE_AIRPORT_IMAGE = "uploads/2026/06/home-service-airport-transfer-2k.webp"
 HOME_SERVICE_WEDDING_IMAGE = "uploads/2026/06/home-service-wedding-sprinter-2k.webp"
+CHECK_BADGE_ICON = "assets/icons/check-badge.svg"
 NEWS_PAGE_SIZE = 12
 TODAY = date.today().isoformat()
 
@@ -285,6 +286,14 @@ def paragraphs_from(text, fallback):
 
 def rel(prefix, path):
     return prefix + path
+
+
+def check_icon(prefix=""):
+    return (
+        '<span class="icon" aria-hidden="true">'
+        f'<img src="{e(rel(prefix, CHECK_BADGE_ICON))}" alt="" width="40" height="40" decoding="async">'
+        "</span>"
+    )
 
 
 def absolute_url(path=""):
@@ -894,7 +903,7 @@ def faq_html(faq_items):
     return "".join(
         f"""          <details class="faq-item">
             <summary>{e(question)}</summary>
-            <p>{e(answer)}</p>
+            <div class="faq-answer"><p>{e(answer)}</p></div>
           </details>
 """
         for question, answer in faq_items
@@ -932,7 +941,7 @@ def service_page(service, cars_data, articles):
     prefix = "../../"
     url = absolute_url(f"services/{service['slug']}/")
     benefits = "".join(
-        f'<article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
+        f'<article class="feature">{check_icon(prefix)}<h3>{e(title)}</h3><p>{e(text)}</p></article>'
         for title, text in service["benefits"]
     )
     audience = "".join(f"<li>{e(item)}</li>" for item in service["audience"])
@@ -1042,7 +1051,7 @@ def build():
     cars_data = load_cars()
 
     feature_html = "".join(
-        f'<article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
+        f'<article class="feature">{check_icon()}<h3>{e(title)}</h3><p>{e(text)}</p></article>'
         for title, text in [
             ("Честная цена", "Подбираем транспорт под задачу без лишних переплат за неподходящий класс."),
             ("Бронирование 24/7", "Заявку можно отправить заранее или в день поездки через WhatsApp и Telegram."),
@@ -1253,10 +1262,10 @@ def build():
       <form class="panel" action="{WHATSAPP}" target="_blank"><h2>Заявка на аренду</h2><label>Ваше имя<input name="name" placeholder="Имя"></label><label>Телефон<input name="phone" placeholder="+998"></label><label>Маршрут<textarea name="message" placeholder="Дата, маршрут, количество пассажиров"></textarea></label><button class="btn" type="submit">Отправить</button></form>
     </div></section>
     <section class="section soft"><div class="wrap"><span class="eyebrow">Зоны обслуживания</span><h2 class="section-title">Подача по Ташкенту и маршруты по Узбекистану</h2><div class="grid grid-4">
-      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Аэропорт и вокзал</h3><p>Встреча гостей, багаж, трансфер до отеля, офиса или другого города.</p></article>
-      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Городские поездки</h3><p>Деловые встречи, семейные маршруты, мероприятия и подача по адресу.</p></article>
-      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Туры и экскурсии</h3><p>Ташкент, Чарвак, Самарканд, Бухара и другие направления по запросу.</p></article>
-      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Группы и события</h3><p>Свадьбы, делегации, корпоративы, развоз гостей и поездки с багажом.</p></article>
+      <article class="feature">{check_icon('../')}<h3>Аэропорт и вокзал</h3><p>Встреча гостей, багаж, трансфер до отеля, офиса или другого города.</p></article>
+      <article class="feature">{check_icon('../')}<h3>Городские поездки</h3><p>Деловые встречи, семейные маршруты, мероприятия и подача по адресу.</p></article>
+      <article class="feature">{check_icon('../')}<h3>Туры и экскурсии</h3><p>Ташкент, Чарвак, Самарканд, Бухара и другие направления по запросу.</p></article>
+      <article class="feature">{check_icon('../')}<h3>Группы и события</h3><p>Свадьбы, делегации, корпоративы, развоз гостей и поездки с багажом.</p></article>
     </div>{service_links('../', 'Заказать услугу')}</div></section></main>
 """
     contacts += footer("../")
@@ -1388,10 +1397,10 @@ def enhance_home():
           <article><strong>3 способа</strong><span>оплаты: наличные, карта, перечисление</span></article>
         </div>
         <div class="grid grid-4 trust-grid">
-          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Реальные фото</h3><p>Показываем салон, багажник и состояние автомобиля до бронирования.</p></article>
-          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Договор и чек</h3><p>Работаем с частными клиентами, гостями и организациями.</p></article>
-          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Детские кресла</h3><p>По запросу подготовим кресло и учтем багаж заранее.</p></article>
-          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Связь до подачи</h3><p>Подтверждаем автомобиль, водителя и точку встречи.</p></article>
+          <article class="feature">{check_icon()}<h3>Реальные фото</h3><p>Показываем салон, багажник и состояние автомобиля до бронирования.</p></article>
+          <article class="feature">{check_icon()}<h3>Договор и чек</h3><p>Работаем с частными клиентами, гостями и организациями.</p></article>
+          <article class="feature">{check_icon()}<h3>Детские кресла</h3><p>По запросу подготовим кресло и учтем багаж заранее.</p></article>
+          <article class="feature">{check_icon()}<h3>Связь до подачи</h3><p>Подтверждаем автомобиль, водителя и точку встречи.</p></article>
         </div>
       </div>
     </section>

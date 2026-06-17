@@ -51,6 +51,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Smooth FAQ accordion
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    const summary = item.querySelector("summary");
+    let answer = item.querySelector(".faq-answer");
+    if (!summary) return;
+
+    if (!answer) {
+      answer = document.createElement("div");
+      answer.className = "faq-answer";
+      while (summary.nextSibling) answer.append(summary.nextSibling);
+      item.append(answer);
+    }
+
+    item.classList.add("is-animated");
+    if (item.open) {
+      answer.style.height = "auto";
+      answer.style.opacity = "1";
+    } else {
+      answer.style.height = "0px";
+      answer.style.opacity = "0";
+    }
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (item.dataset.animating === "true") return;
+
+      const opening = !item.open;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reducedMotion) {
+        item.open = opening;
+        answer.style.height = opening ? "auto" : "0px";
+        answer.style.opacity = opening ? "1" : "0";
+        return;
+      }
+
+      item.dataset.animating = "true";
+
+      const finish = () => {
+        if (opening) {
+          answer.style.height = "auto";
+        } else {
+          item.open = false;
+        }
+        delete item.dataset.animating;
+      };
+
+      let finished = false;
+      const finishOnce = () => {
+        if (finished) return;
+        finished = true;
+        answer.removeEventListener("transitionend", onTransitionEnd);
+        finish();
+      };
+      const onTransitionEnd = (transitionEvent) => {
+        if (transitionEvent.propertyName === "height") finishOnce();
+      };
+
+      answer.addEventListener("transitionend", onTransitionEnd);
+      window.setTimeout(finishOnce, 460);
+
+      if (opening) {
+        item.open = true;
+        answer.style.height = "0px";
+        answer.style.opacity = "0";
+        requestAnimationFrame(() => {
+          answer.style.height = `${answer.scrollHeight}px`;
+          answer.style.opacity = "1";
+        });
+      } else {
+        answer.style.height = `${answer.scrollHeight}px`;
+        answer.style.opacity = "1";
+        requestAnimationFrame(() => {
+          answer.style.height = "0px";
+          answer.style.opacity = "0";
+        });
+      }
+    });
+  });
+
   // Gallery carousel
   document.querySelectorAll("[data-gallery-card]").forEach((card) => {
     const slides = Array.from(card.querySelectorAll(".car-gallery img"));

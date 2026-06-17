@@ -1065,6 +1065,7 @@ textarea {
   background: linear-gradient(180deg, #fff 0%, #f4faff 100%);
   padding: 20px;
   box-shadow: var(--shadow-soft);
+  transition: transform .24s var(--ease), box-shadow .24s var(--ease), border-color .24s var(--ease), background .24s var(--ease);
 }
 
 .trust-strip strong {
@@ -1073,6 +1074,8 @@ textarea {
   font-size: 32px;
   line-height: 1;
   font-family: 'Manrope', sans-serif;
+  transform-origin: left center;
+  transition: color .24s var(--ease), text-shadow .24s var(--ease), transform .24s var(--ease);
 }
 
 .trust-strip span {
@@ -1080,10 +1083,42 @@ textarea {
   margin-top: 8px;
   color: var(--muted);
   font-weight: 700;
+  transition: color .24s var(--ease);
+}
+
+.trust-strip article:hover {
+  border-color: rgba(3, 105, 161, .24);
+  background: linear-gradient(180deg, #fff 0%, #eef8ff 100%);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, .11);
+  transform: translateY(-3px);
+}
+
+.trust-strip article:hover strong {
+  color: var(--accent-dark);
+  text-shadow: 0 8px 18px rgba(3, 105, 161, .14);
+  animation: trust-stat-pop .42s var(--ease);
+}
+
+.trust-strip article:hover span {
+  color: var(--ink);
 }
 
 .trust-grid {
   margin-top: 22px;
+}
+
+@keyframes trust-stat-pop {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  44% {
+    transform: translateY(-1px) scale(1.045);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
 .floating-whatsapp {
@@ -1147,26 +1182,43 @@ textarea {
 }
 
 .icon {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius);
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
-  color: var(--accent);
-  background: var(--soft-blue);
-  font-size: 0;
   margin-bottom: 16px;
-  box-shadow: inset 0 0 0 1px rgba(3, 105, 161, .12);
+  transform-origin: center;
+  transition: filter .24s var(--ease), transform .24s var(--ease);
 }
 
-.icon::before {
-  content: "";
-  width: 9px;
-  height: 15px;
+.icon img {
   display: block;
-  border-right: 3px solid currentColor;
-  border-bottom: 3px solid currentColor;
-  transform: rotate(45deg) translate(-1px, -1px);
+  width: 40px;
+  height: 40px;
+  transform-origin: center;
+}
+
+.feature:hover .icon {
+  filter: drop-shadow(0 8px 16px rgba(3, 105, 161, .18));
+  transform: translateY(-2px);
+}
+
+.feature:hover .icon img {
+  animation: check-badge-pop .42s var(--ease);
+}
+
+@keyframes check-badge-pop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  42% {
+    transform: scale(1.08) rotate(-4deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .service-card .price strong {
@@ -1315,17 +1367,72 @@ textarea {
   background: var(--white);
   overflow: hidden;
   box-shadow: 0 8px 22px rgba(15, 23, 42, .04);
+  transition: border-color .24s var(--ease), box-shadow .24s var(--ease), background .24s var(--ease);
+}
+
+.faq-item[open] {
+  border-color: rgba(3, 105, 161, .22);
+  background: linear-gradient(180deg, #fff 0%, #f8fcff 100%);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, .08);
 }
 
 .faq-item summary {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 16px 18px;
   color: var(--ink);
   font-family: 'Manrope', sans-serif;
   font-weight: 900;
+  list-style: none;
+  transition: color .24s var(--ease);
 }
 
-.faq-item p {
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid currentColor;
+  transition: transform .28s var(--ease), color .24s var(--ease);
+}
+
+.faq-item[open] summary {
+  color: var(--accent-dark);
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 3px solid rgba(3, 105, 161, .2);
+  outline-offset: -3px;
+}
+
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-item.is-animated .faq-answer {
+  height: 0;
+  opacity: 0;
+  transition: height .34s var(--ease), opacity .22s var(--ease);
+  will-change: height, opacity;
+}
+
+.faq-item.is-animated[open] .faq-answer {
+  opacity: 1;
+}
+
+.faq-answer p {
   margin: 0;
   padding: 0 18px 18px;
   color: var(--muted);
