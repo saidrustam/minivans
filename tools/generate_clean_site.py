@@ -21,6 +21,7 @@ DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
 CARS_HERO = "uploads/2026/06/cars-hero-fleet-2k.webp"
 SERVICES_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
 NEWS_HERO = SERVICES_HERO
+CONTACTS_HERO = SERVICES_HERO
 HOME_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
 HOME_FEATURED_CAR_IMAGE = "uploads/2026/06/home-kia-carnival-feature-2k.webp"
 HOME_SERVICE_MINIVAN_IMAGE = "uploads/2026/06/home-service-minivan-tashkent-2k.webp"
@@ -1250,14 +1251,14 @@ def build():
         "Контакты Minivan24: телефон, WhatsApp, Telegram, email и адрес для заказа минивэна, микроавтобуса или трансфера в Ташкенте.",
         "../",
         canonical=absolute_url("kontakty/"),
-        image=DEFAULT_HERO,
+        image=CONTACTS_HERO,
         structured_data=schema_list(
             organization_schema(),
             breadcrumb_schema([("Главная", absolute_url()), ("Контакты", absolute_url("kontakty/"))]),
         ),
     )
     contacts += header("../", "contacts")
-    contacts += page_hero("Контакты", "Свяжитесь с нами, чтобы подобрать минивэн, микроавтобус или трансфер под вашу поездку.", "../", DEFAULT_HERO, "Minivan24 contacts")
+    contacts += page_hero("Контакты", "Свяжитесь с нами, чтобы подобрать минивэн, микроавтобус или трансфер под вашу поездку.", "../", CONTACTS_HERO, "Minivan24 contacts")
     contacts += f"""  <main><section class="section contact-section"><div class="wrap grid grid-2">
       <div class="panel"><h2>Связаться с нами</h2><p><strong>Телефон:</strong> <a href="{PHONE_HREF}">{PHONE}</a></p><p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p><p><strong>Адрес:</strong> {ADDRESS}</p><p><strong>Telegram:</strong> <a href="{TELEGRAM}">@minivanuzb</a></p><p><strong>WhatsApp:</strong> <a href="{WHATSAPP}" target="_blank" rel="noopener">отправить заявку</a></p></div>
       <form class="panel" action="{WHATSAPP}" target="_blank"><h2>Заявка на аренду</h2><label>Ваше имя<input name="name" placeholder="Имя"></label><label>Телефон<input name="phone" placeholder="+998"></label><label>Маршрут<textarea name="message" placeholder="Дата, маршрут, количество пассажиров"></textarea></label><button class="btn" type="submit">Отправить</button></form>
