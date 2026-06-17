@@ -12,6 +12,8 @@ PHONE = "+998 99 008 4000"
 PHONE_HREF = "tel:+998990084000"
 EMAIL = "info@minivan24.uz"
 ADDRESS = "Ташкент, улица Амир Темур 99а"
+GOOGLE_MAP_EMBED = "https://www.google.com/maps?q=%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%BC%D0%B8%D1%80%20%D0%A2%D0%B5%D0%BC%D1%83%D1%80%2099%D0%B0&output=embed"
+GOOGLE_MAP_LINK = "https://www.google.com/maps/search/?api=1&query=%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%BC%D0%B8%D1%80%20%D0%A2%D0%B5%D0%BC%D1%83%D1%80%2099%D0%B0"
 TELEGRAM = "https://t.me/minivanuzb"
 WHATSAPP = "https://wa.me/998990084000"
 INSTAGRAM = "https://www.instagram.com/minivanuz/profilecard/?igsh=YmN3bm9vbjE0ajNq"
@@ -1262,6 +1264,12 @@ def build():
     contacts += f"""  <main><section class="section contact-section"><div class="wrap grid grid-2">
       <div class="panel"><h2>Связаться с нами</h2><p><strong>Телефон:</strong> <a href="{PHONE_HREF}">{PHONE}</a></p><p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p><p><strong>Адрес:</strong> {ADDRESS}</p><p><strong>Telegram:</strong> <a href="{TELEGRAM}">@minivanuzb</a></p><p><strong>WhatsApp:</strong> <a href="{WHATSAPP}" target="_blank" rel="noopener">отправить заявку</a></p></div>
       <form class="panel" action="{WHATSAPP}" target="_blank"><h2>Заявка на аренду</h2><label>Ваше имя<input name="name" placeholder="Имя"></label><label>Телефон<input name="phone" placeholder="+998"></label><label>Маршрут<textarea name="message" placeholder="Дата, маршрут, количество пассажиров"></textarea></label><button class="btn" type="submit">Отправить</button></form>
+    </div></section>
+    <section class="section contact-map-section"><div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Карта</span><h2 class="section-title compact-title">Minivan24 на Google Maps</h2></div><a class="btn ghost" href="{GOOGLE_MAP_LINK}" target="_blank" rel="noopener">Открыть в Google Maps</a></div>
+      <div class="contact-map-panel">
+        <iframe src="{GOOGLE_MAP_EMBED}" title="Minivan24 на Google Maps" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
     </div></section>
     <section class="section soft"><div class="wrap"><span class="eyebrow">Зоны обслуживания</span><h2 class="section-title">Подача по Ташкенту и маршруты по Узбекистану</h2><div class="grid grid-4">
       <article class="feature">{check_icon('../')}<h3>Аэропорт и вокзал</h3><p>Встреча гостей, багаж, трансфер до отеля, офиса или другого города.</p></article>
