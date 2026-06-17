@@ -19,6 +19,7 @@ LOGO = "uploads/2024/11/minivan24-logo.png"
 FAVICON = "uploads/2024/11/minivan24-favicon.png"
 DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
 CARS_HERO = "uploads/2026/06/cars-hero-fleet-2k.webp"
+SERVICES_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
 NEWS_PAGE_SIZE = 12
 TODAY = date.today().isoformat()
 
@@ -624,6 +625,20 @@ def car_carousel_card(car, prefix, link_prefix=""):
 """
 
 
+HOME_CAR_TITLES = {
+    "kia-carnival": "KIA Carnival «Комфорт»",
+    "kia-carnival-2": "KIA Carnival «Премиум»",
+    "kia-carnival-3": "KIA Carnival «Семейный»",
+    "kia-carnival-4": "KIA Carnival «Трансфер»",
+    "kia-carnival-5": "KIA Carnival «Бизнес»",
+}
+
+
+def home_car_card(car):
+    display_car = {**car, "title": HOME_CAR_TITLES.get(car["slug"], car["title"])}
+    return car_carousel_card(display_car, "", "cars/")
+
+
 def car_detail_gallery(car, prefix):
     title = car["title"]
     gallery = car.get("gallery") or [car["image"]]
@@ -868,7 +883,7 @@ def service_page(service, cars_data, articles):
     prefix = "../../"
     url = absolute_url(f"services/{service['slug']}/")
     benefits = "".join(
-        f'<article class="feature"><div class="icon">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
+        f'<article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
         for title, text in service["benefits"]
     )
     audience = "".join(f"<li>{e(item)}</li>" for item in service["audience"])
@@ -978,7 +993,7 @@ def build():
     cars_data = load_cars()
 
     feature_html = "".join(
-        f'<article class="feature"><div class="icon">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
+        f'<article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>{e(title)}</h3><p>{e(text)}</p></article>'
         for title, text in [
             ("Честная цена", "Подбираем транспорт под задачу без лишних переплат за неподходящий класс."),
             ("Бронирование 24/7", "Заявку можно отправить заранее или в день поездки через WhatsApp и Telegram."),
@@ -998,7 +1013,7 @@ def build():
         "Аренда минивэнов и микроавтобусов в Ташкенте с водителем и без: трансферы, свадьбы, экскурсии, поездки по Узбекистану, заявка в WhatsApp.",
         "",
         canonical=absolute_url(),
-        image=DEFAULT_HERO,
+        image=SERVICES_HERO,
         structured_data=schema_list(organization_schema(), website_schema(), faq_schema(home_faq)),
     )
     home += header("", "home")
@@ -1046,7 +1061,7 @@ def build():
         ),
     )
     services += header("../", "services")
-    services += page_hero("Услуги аренды транспорта", "Отдельные посадочные страницы под основные задачи: минивэн, микроавтобус, водитель, аэропорт, свадьба и маршруты по Узбекистану.", "../", DEFAULT_HERO, "Minivan24 services")
+    services += page_hero("Услуги аренды транспорта", "Отдельные посадочные страницы под основные задачи: минивэн, микроавтобус, водитель, аэропорт, свадьба и маршруты по Узбекистану.", "../", SERVICES_HERO, "Minivan24 services")
     services += f"""  <main>
     <section class="section">
       <div class="wrap">
@@ -1139,7 +1154,7 @@ def build():
         )
         news += header(prefix, "news")
         news += page_hero(title, "Полезные статьи об аренде минивэнов, трансферах, маршрутах по Ташкенту и поездках по Узбекистану.", prefix, DEFAULT_HERO, "Minivan24 news")
-        news += f'<main><section class="section"><div class="wrap"><div class="grid grid-3">\n{cards}</div>{pagination(page, total_pages, index_href, page_base)}</div></section></main>\n'
+        news += f'<main><section class="section news-list"><div class="wrap"><div class="grid grid-3">\n{cards}</div>{pagination(page, total_pages, index_href, page_base)}</div></section></main>\n'
         news += footer(prefix)
         write(out, news)
 
@@ -1184,15 +1199,15 @@ def build():
     )
     contacts += header("../", "contacts")
     contacts += page_hero("Контакты", "Свяжитесь с нами, чтобы подобрать минивэн, микроавтобус или трансфер под вашу поездку.", "../", DEFAULT_HERO, "Minivan24 contacts")
-    contacts += f"""  <main><section class="section"><div class="wrap grid grid-2">
+    contacts += f"""  <main><section class="section contact-section"><div class="wrap grid grid-2">
       <div class="panel"><h2>Связаться с нами</h2><p><strong>Телефон:</strong> <a href="{PHONE_HREF}">{PHONE}</a></p><p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p><p><strong>Адрес:</strong> {ADDRESS}</p><p><strong>Telegram:</strong> <a href="{TELEGRAM}">@minivanuzb</a></p><p><strong>WhatsApp:</strong> <a href="{WHATSAPP}" target="_blank" rel="noopener">отправить заявку</a></p></div>
       <form class="panel" action="{WHATSAPP}" target="_blank"><h2>Заявка на аренду</h2><label>Ваше имя<input name="name" placeholder="Имя"></label><label>Телефон<input name="phone" placeholder="+998"></label><label>Маршрут<textarea name="message" placeholder="Дата, маршрут, количество пассажиров"></textarea></label><button class="btn" type="submit">Отправить</button></form>
     </div></section>
     <section class="section soft"><div class="wrap"><span class="eyebrow">Зоны обслуживания</span><h2 class="section-title">Подача по Ташкенту и маршруты по Узбекистану</h2><div class="grid grid-4">
-      <article class="feature"><div class="icon">✓</div><h3>Аэропорт и вокзал</h3><p>Встреча гостей, багаж, трансфер до отеля, офиса или другого города.</p></article>
-      <article class="feature"><div class="icon">✓</div><h3>Городские поездки</h3><p>Деловые встречи, семейные маршруты, мероприятия и подача по адресу.</p></article>
-      <article class="feature"><div class="icon">✓</div><h3>Туры и экскурсии</h3><p>Ташкент, Чарвак, Самарканд, Бухара и другие направления по запросу.</p></article>
-      <article class="feature"><div class="icon">✓</div><h3>Группы и события</h3><p>Свадьбы, делегации, корпоративы, развоз гостей и поездки с багажом.</p></article>
+      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Аэропорт и вокзал</h3><p>Встреча гостей, багаж, трансфер до отеля, офиса или другого города.</p></article>
+      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Городские поездки</h3><p>Деловые встречи, семейные маршруты, мероприятия и подача по адресу.</p></article>
+      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Туры и экскурсии</h3><p>Ташкент, Чарвак, Самарканд, Бухара и другие направления по запросу.</p></article>
+      <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Группы и события</h3><p>Свадьбы, делегации, корпоративы, развоз гостей и поездки с багажом.</p></article>
     </div>{service_links('../', 'Заказать услугу')}</div></section></main>
 """
     contacts += footer("../")
@@ -1227,7 +1242,7 @@ def enhance_home():
     home = read(index_path)
     if not home:
         return
-    home_cars = "".join(car_carousel_card(car, "", "cars/") for car in load_cars()[:6])
+    home_cars = "".join(home_car_card(car) for car in load_cars()[:6])
 
     home_main = f"""  <main>
     <section class="hero hero-sales" style="--hero-image: url('{DEFAULT_HERO}')">
@@ -1324,10 +1339,10 @@ def enhance_home():
           <article><strong>3 способа</strong><span>оплаты: наличные, карта, перечисление</span></article>
         </div>
         <div class="grid grid-4 trust-grid">
-          <article class="feature"><div class="icon">✓</div><h3>Реальные фото</h3><p>Показываем салон, багажник и состояние автомобиля до бронирования.</p></article>
-          <article class="feature"><div class="icon">✓</div><h3>Договор и чек</h3><p>Работаем с частными клиентами, гостями и организациями.</p></article>
-          <article class="feature"><div class="icon">✓</div><h3>Детские кресла</h3><p>По запросу подготовим кресло и учтем багаж заранее.</p></article>
-          <article class="feature"><div class="icon">✓</div><h3>Связь до подачи</h3><p>Подтверждаем автомобиль, водителя и точку встречи.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Реальные фото</h3><p>Показываем салон, багажник и состояние автомобиля до бронирования.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Договор и чек</h3><p>Работаем с частными клиентами, гостями и организациями.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Детские кресла</h3><p>По запросу подготовим кресло и учтем багаж заранее.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">✓</div><h3>Связь до подачи</h3><p>Подтверждаем автомобиль, водителя и точку встречи.</p></article>
         </div>
       </div>
     </section>
