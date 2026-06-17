@@ -20,6 +20,7 @@ FAVICON = "uploads/2024/11/minivan24-favicon.png"
 DEFAULT_HERO = "uploads/2024/11/mercedes-sprinter-hero.webp"
 CARS_HERO = "uploads/2026/06/cars-hero-fleet-2k.webp"
 SERVICES_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
+NEWS_HERO = SERVICES_HERO
 HOME_HERO = "uploads/2026/06/services-hero-transport-2k.webp"
 HOME_FEATURED_CAR_IMAGE = "uploads/2026/06/home-kia-carnival-feature-2k.webp"
 HOME_SERVICE_MINIVAN_IMAGE = "uploads/2026/06/home-service-minivan-tashkent-2k.webp"
@@ -1204,14 +1205,14 @@ def build():
             "Новости аренды минивэнов и микроавтобусов в Ташкенте: трансферы, маршруты, цены, выбор транспорта и советы для поездок.",
             prefix,
             canonical=absolute_url(news_path),
-            image=DEFAULT_HERO,
+            image=NEWS_HERO,
             structured_data=schema_list(
                 organization_schema(),
                 breadcrumb_schema([("Главная", absolute_url()), ("Новости", absolute_url("news/"))]),
             ),
         )
         news += header(prefix, "news")
-        news += page_hero(title, "Полезные статьи об аренде минивэнов, трансферах, маршрутах по Ташкенту и поездках по Узбекистану.", prefix, DEFAULT_HERO, "Minivan24 news")
+        news += page_hero(title, "Полезные статьи об аренде минивэнов, трансферах, маршрутах по Ташкенту и поездках по Узбекистану.", prefix, NEWS_HERO, "Minivan24 news")
         news += f'<main><section class="section news-list"><div class="wrap"><div class="grid grid-3">\n{cards}</div>{pagination(page, total_pages, index_href, page_base)}</div></section></main>\n'
         news += footer(prefix)
         write(out, news)
