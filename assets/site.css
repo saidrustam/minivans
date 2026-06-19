@@ -371,6 +371,34 @@ body.menu-open .floating-whatsapp {
     linear-gradient(180deg, rgba(2, 6, 23, .06) 0%, rgba(2, 6, 23, 0) 48%, rgba(2, 6, 23, .18) 100%);
 }
 
+.hero-ambient {
+  position: absolute;
+  inset: -38%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .2;
+  mix-blend-mode: screen;
+  background:
+    repeating-conic-gradient(from 12deg, rgba(56, 189, 248, .26) 0deg 1deg, transparent 1deg 16deg),
+    repeating-linear-gradient(118deg, transparent 0 66px, rgba(255, 255, 255, .06) 66px 67px, transparent 67px 132px);
+  background-size: 240px 240px, 220px 220px;
+  -webkit-mask-image: radial-gradient(ellipse at 44% 42%, rgba(0, 0, 0, .9) 0 34%, rgba(0, 0, 0, .42) 54%, transparent 78%);
+  mask-image: radial-gradient(ellipse at 44% 42%, rgba(0, 0, 0, .9) 0 34%, rgba(0, 0, 0, .42) 54%, transparent 78%);
+  transform-origin: center;
+  animation: hero-ambient-spin 64s linear infinite;
+  will-change: transform;
+}
+
+@keyframes hero-ambient-spin {
+  from {
+    transform: rotate(0deg) scale(1.04);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.04);
+  }
+}
+
 .hero .wrap {
   position: relative;
   z-index: 2;
@@ -2011,6 +2039,11 @@ textarea {
       linear-gradient(180deg, rgba(2, 6, 23, .86) 0%, rgba(15, 23, 42, .58) 54%, rgba(2, 6, 23, .8) 100%);
   }
 
+  .hero-ambient {
+    inset: -46%;
+    opacity: .13;
+  }
+
   .hero h1,
   .page-title {
     font-size: 32px;
@@ -2139,5 +2172,10 @@ textarea {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: .001ms !important;
+  }
+
+  .hero-ambient {
+    animation: none !important;
+    transform: rotate(0deg) scale(1.04);
   }
 }

@@ -1314,6 +1314,7 @@ def enhance_home():
 
     home_main = f"""  <main>
     <section class="hero hero-sales" style="--hero-image: url('{HOME_HERO}')">
+      <span class="hero-ambient" aria-hidden="true"></span>
       <div class="wrap hero-sales-grid">
         <div class="hero-copy">
           <span class="eyebrow">Minivan24 Tashkent</span>
